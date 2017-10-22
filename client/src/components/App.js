@@ -33,6 +33,10 @@ class App extends Component {
       this.props.updateDaysArray(
         _.keys(this.props.mediflections).map(date => new Date(date))
       );
+      this.generateChartDatesArray(
+        this.props.mediflections,
+        this.props.daysArray
+      );
     });
   }
 
@@ -49,6 +53,25 @@ class App extends Component {
       showDate: date
     });
     this.props.fetchMediflection(date, this.props.mediflections[date]);
+  };
+
+  generateChartDatesArray = (mediflections, daysArray) => {
+    const chartDatesArray = [0, 0, 0, 0, 0, 0, 0];
+    daysArray = daysArray.toString().split(',');
+
+    for (let i = 0; i < 7; i++) {
+      let weekDay = new Date();
+      weekDay.setHours(0, 0, 0, 0);
+      weekDay.setDate(weekDay.getDate() - weekDay.getDay() + i);
+      weekDay = String(weekDay);
+      let indexSearch = daysArray.indexOf(weekDay);
+
+      if (indexSearch >= 0) {
+        console.log(mediflections[weekDay.slice(0, 15)].time);
+        chartDatesArray[i] = mediflections[weekDay.slice(0, 15)].time;
+      }
+    }
+    console.log(chartDatesArray);
   };
 
   renderLogin() {
@@ -98,7 +121,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('daysArray', this.props.daysArray);
     return (
       <div>
         <Header />
