@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
 import { defaults } from 'react-chartjs-2';
+
+import * as actions from '../../actions';
 
 defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
 //make API call to update data.
@@ -9,17 +12,8 @@ defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
 //time will default to 0
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const chartArrayVals = [];
 
-for (let i = 0; i < 7; i++) {
-  let oneWeekAgo = new Date();
-  oneWeekAgo.setDate(oneWeekAgo.getDate() - oneWeekAgo.getDay() + i);
-  chartArrayVals[i] = String(oneWeekAgo).slice(0, 15);
-}
-
-console.log('chartArrayVals', chartArrayVals);
-
-export default class Graph extends Component {
+class WeekChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +23,7 @@ export default class Graph extends Component {
         datasets: [
           {
             label: 'minutes',
-            data: this.props.weekArrayVals,
+            data: this.props.chartArray,
             backgroundColor: 'rgba(74, 144, 226, 0.68)'
           }
         ]
@@ -62,6 +56,8 @@ export default class Graph extends Component {
   }
 
   render() {
+    console.log(this.props.chartArray);
+    console.log('this.props.chartArray2', this.props.chartArray2);
     let chartData;
     if (this.props.today) {
       chartData = (
@@ -90,3 +86,10 @@ export default class Graph extends Component {
     return <div>{chartData}</div>;
   }
 }
+function mapStateToProps({ chartArray }) {
+  return {
+    chartArray
+  };
+}
+
+export default connect(mapStateToProps, actions)(WeekChart);

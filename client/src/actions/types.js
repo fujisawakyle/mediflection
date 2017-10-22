@@ -3,3 +3,5 @@ export const FETCH_MEDIFLECTIONS = 'fetch_mediflections';
 export const FETCH_MEDIFLECTION = 'fetch_mediflection';
 export const UPDATE_MEDIFLECTION = 'update_mediflection';
 export const UPDATE_DAYS_ARRAY = 'update_days_array';
+export const CREATE_CHART_ARRAY = 'create_chart_array';
+export const UPDATE_CHART_ARRAY = 'update_chart_array';

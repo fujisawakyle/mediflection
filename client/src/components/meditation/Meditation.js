@@ -139,7 +139,6 @@ class Meditation extends Component {
   }
 
   countDown = () => {
-    console.log('this.state.seconds', this.state.seconds);
     // Remove one second, set state so a re-render happens.
     let seconds = this.state.seconds - 1;
     let log = this.state.logTime - 1;
@@ -174,20 +173,11 @@ class Meditation extends Component {
       this.props.updateDaysArray([
         new Date(this.props.selectedMediflection.date)
       ]);
+      this.props.updateChartArray(this.props.selectedMediflection.time);
     }
   };
 
   render() {
-    console.log(
-      'this.props.selectedMediflection.time',
-      this.props.selectedMediflection.time
-    );
-    console.log(
-      'this.props.selectedMediflection',
-      this.props.selectedMediflection
-    );
-    console.log('this.state.time', this.state.time);
-
     const { time } = this.props.selectedMediflection;
 
     let minutesInput = ' minute';

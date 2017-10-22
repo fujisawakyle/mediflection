@@ -9,7 +9,7 @@ import Header from './Header';
 import Entry from './reflection/Entry';
 import ShowDate from './ShowDate';
 import Meditation from './meditation/Meditation';
-import WeekChart from './weekChart/weekChart';
+import WeekChart from './weekChart/WeekChart';
 
 import '../theme/globalStyle';
 import 'react-day-picker/lib/style.css';
@@ -23,7 +23,8 @@ class App extends Component {
     this.state = {
       showDate: String(new Date()).slice(0, 15),
       today: true,
-      showInput: true
+      showInput: true,
+      chartArray: []
     };
   }
   componentDidMount() {
@@ -56,7 +57,7 @@ class App extends Component {
   };
 
   generateChartDatesArray = (mediflections, daysArray) => {
-    const chartDatesArray = [0, 0, 0, 0, 0, 0, 0];
+    const chartArray = [0, 0, 0, 0, 0, 0, 0];
     daysArray = daysArray.toString().split(',');
 
     for (let i = 0; i < 7; i++) {
@@ -67,11 +68,10 @@ class App extends Component {
       let indexSearch = daysArray.indexOf(weekDay);
 
       if (indexSearch >= 0) {
-        console.log(mediflections[weekDay.slice(0, 15)].time);
-        chartDatesArray[i] = mediflections[weekDay.slice(0, 15)].time;
+        chartArray[i] = mediflections[weekDay.slice(0, 15)].time;
       }
     }
-    console.log(chartDatesArray);
+    this.props.createChartArray(chartArray);
   };
 
   renderLogin() {
@@ -89,7 +89,11 @@ class App extends Component {
   }
 
   renderContent() {
-    if (this.props.user && !_.isEmpty(this.props.selectedMediflection)) {
+    if (
+      this.props.user &&
+      !_.isEmpty(this.props.selectedMediflection) &&
+      this.props.chartArray.length > 0
+    ) {
       return (
         <div>
           <h4>You are signed in</h4>
@@ -135,13 +139,15 @@ function mapStateToProps({
   user,
   mediflections,
   selectedMediflection,
-  daysArray
+  daysArray,
+  chartArray
 }) {
   return {
     user,
     mediflections,
     selectedMediflection,
-    daysArray
+    daysArray,
+    chartArray
   };
 }
 
