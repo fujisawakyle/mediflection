@@ -9,6 +9,7 @@ import Header from './Header';
 import Entry from './reflection/Entry';
 import ShowDate from './ShowDate';
 import Meditation from './meditation/Meditation';
+import WeekChart from './weekChart/weekChart';
 
 import '../theme/globalStyle';
 import 'react-day-picker/lib/style.css';
@@ -82,6 +83,7 @@ class App extends Component {
             showInput={this.state.showInput}
             selectedMediflection={this.props.selectedMediflection}
           />
+          <WeekChart />
         </div>
       );
     } else if (!this.props.user) {

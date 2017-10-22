@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Container } from '../layout';
 
 class ShowDate extends Component {
   render() {
     return (
-      <div>
+      <Container>
         <h4> {this.props.date}</h4>
-      </div>
+      </Container>
     );
   }
 }
