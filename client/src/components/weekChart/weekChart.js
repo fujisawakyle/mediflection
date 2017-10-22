@@ -9,10 +9,15 @@ defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
 //time will default to 0
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const chartArrayVals = [];
 
-let oneWeekAgo = new Date();
-oneWeekAgo.setDate(oneWeekAgo.getDate() - oneWeekAgo.getDay() + 0);
-console.log('oneweekAgo', String(oneWeekAgo));
+for (let i = 0; i < 7; i++) {
+  let oneWeekAgo = new Date();
+  oneWeekAgo.setDate(oneWeekAgo.getDate() - oneWeekAgo.getDay() + i);
+  chartArrayVals[i] = String(oneWeekAgo).slice(0, 15);
+}
+
+console.log('chartArrayVals', chartArrayVals);
 
 export default class Graph extends Component {
   constructor(props) {
