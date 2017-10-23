@@ -158,8 +158,6 @@ class Meditation extends Component {
     }
 
     //log time every 1 minute
-    console.log('log', log);
-    console.log('time', this.state.time);
     if (log === 0) {
       this.setState({
         logTime: 60,

@@ -56,10 +56,10 @@ class WeekChart extends Component {
   }
 
   render() {
-    console.log(this.props.chartArray);
-    console.log('this.props.chartArray2', this.props.chartArray2);
+    console.log('chartArray', this.props.chartArray);
     let chartData;
     if (this.props.today) {
+      console.log('today');
       chartData = (
         <div>
           <Bar

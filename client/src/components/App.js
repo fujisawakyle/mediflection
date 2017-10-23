@@ -110,7 +110,7 @@ class App extends Component {
             showInput={this.state.showInput}
             selectedMediflection={this.props.selectedMediflection}
           />
-          <WeekChart />
+          <WeekChart today={this.state.today} />
         </div>
       );
     } else if (!this.props.user) {
