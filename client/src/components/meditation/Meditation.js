@@ -151,16 +151,16 @@ class Meditation extends Component {
     // Check if we're at zero.
     if (seconds === 0) {
       clearInterval(this.state.timer);
-      this.handleSongStartPlaying();
       this.setState({
         timerDoneFlag: true
       });
+      this.handleSongStartPlaying();
     }
 
     //log time every 1 minute
     if (log === 0) {
       this.setState({
-        logTime: 60,
+        logTime: 10,
         time: this.state.time + 1
       });
 

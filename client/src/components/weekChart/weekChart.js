@@ -55,6 +55,22 @@ class WeekChart extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log('nextProps', nextProps);
+    this.setState({
+      chartData: {
+        labels: [days[0], days[1], days[2], days[3], days[4], days[5], days[6]],
+        datasets: [
+          {
+            label: 'minutes',
+            data: nextProps.chartArray,
+            backgroundColor: 'rgba(74, 144, 226, 0.68)'
+          }
+        ]
+      }
+    });
+  }
+
   render() {
     console.log('chartArray', this.props.chartArray);
     let chartData;
