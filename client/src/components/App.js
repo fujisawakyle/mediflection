@@ -4,14 +4,17 @@ import * as actions from '../actions';
 import _ from 'lodash';
 import styled from 'styled-components';
 import DayPicker from 'react-day-picker';
+import Isvg from 'react-inlinesvg';
 
-import Header from './Header';
+import Header from '../containers/Header/Header';
 import Entry from './reflection/Entry';
-import ShowDate from './ShowDate';
+import ShowDate from './ShowDate/ShowDate';
 import Meditation from './meditation/Meditation';
 import WeekChart from './weekChart/WeekChart';
 
-import '../theme/globalStyle';
+import { ComponentsContainer } from '../styles/layout';
+
+import '../styles/globalStyle';
 import 'react-day-picker/lib/style.css';
 
 const today = String(new Date()).slice(0, 15);
@@ -80,10 +83,14 @@ class App extends Component {
         return;
       case false:
         return (
-          <div>
+          <ComponentsContainer>
             <h1>Welcome to Mediflection</h1>
             <h4>Track your meditation, track your reflection</h4>
-          </div>
+
+            <a href="/auth/google">
+              <h4>Login with Google</h4>
+            </a>
+          </ComponentsContainer>
         );
     }
   }
@@ -95,7 +102,7 @@ class App extends Component {
       this.props.chartArray.length > 0
     ) {
       return (
-        <div>
+        <ComponentsContainer>
           <h4>You are signed in</h4>
           <ShowDate date={this.state.showDate} />
           <DayPicker
@@ -111,7 +118,7 @@ class App extends Component {
             selectedMediflection={this.props.selectedMediflection}
           />
           <WeekChart today={this.state.today} />
-        </div>
+        </ComponentsContainer>
       );
     } else if (!this.props.user) {
       return <div />;

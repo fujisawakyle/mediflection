@@ -6,8 +6,16 @@ injectGlobal`
     body {
         background: linear-gradient(to left top, #1687c0, #040711) fixed;
         color: white;
-        @include flex-box($jc: center, $ai: center);
         font-family: 'Bungee Hairline', cursive;
-        
+        margin: 0;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    
+    }
+    a:hover {
+        text-decoration: underline;
     }
 `;

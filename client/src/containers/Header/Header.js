@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { HeaderStyle } from '../layout';
+import { HeaderContainer, HeaderTitle, HeaderButton } from './Header.style';
 
-import * as actions from '../actions';
-
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: left;
-`;
+import * as actions from '../../actions';
 
 class Header extends Component {
   renderUserStatus() {
@@ -16,11 +11,7 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return (
-          <div>
-            <a href="/auth/google">Login With Google</a>
-          </div>
-        );
+        return <div />;
       default:
         return (
           <div>
@@ -31,10 +22,10 @@ class Header extends Component {
   }
   render() {
     return (
-      <HeaderStyle>
-        <Title>Mediflection</Title>
-        {this.renderUserStatus()}
-      </HeaderStyle>
+      <HeaderContainer>
+        <HeaderTitle>Mediflection</HeaderTitle>
+        <HeaderButton>{this.renderUserStatus()}</HeaderButton>
+      </HeaderContainer>
     );
   }
 }
