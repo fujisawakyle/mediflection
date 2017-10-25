@@ -4,8 +4,8 @@ import { Container } from './ShowDate.style';
 
 export default ({ date }) => {
   return (
-    <ComponentBackground>
+    <Container>
       <h4> {date}</h4>
-    </ComponentBackground>
+    </Container>
   );
 };

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
+import { ComponentBackground } from '../../styles/layout';
+
 //this grabs input from props // es6
 class Entry extends Component {
   state = {
@@ -27,7 +29,8 @@ class Entry extends Component {
   };
   render() {
     return (
-      <div>
+      <ComponentBackground>
+        <h3>Reflection</h3>
         <textarea
           autoComplete="off"
           onChange={this.handleChange}
@@ -37,7 +40,7 @@ class Entry extends Component {
         <button onClick={() => this.update(this.state.entry)} type="submit">
           Submit
         </button>
-      </div>
+      </ComponentBackground>
     );
   }
 }

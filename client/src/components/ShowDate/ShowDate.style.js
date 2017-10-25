@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import media from '../../styles/media';
 
-export const Container = styled.div`
+import { ComponentBackground } from '../../styles/layout';
+
+export const Container = styled(ComponentBackground)`
+  color: white;
   padding: 1em;
-  width: 500px;
-  height: 300px;
 `;

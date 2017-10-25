@@ -7,6 +7,8 @@ import Sound from 'react-sound';
 import ShowTracked from './showTracked';
 import ShowRemaining from './ShowRemaining';
 
+import { ComponentBackground } from '../../styles/layout';
+
 import * as actions from '../../actions';
 
 class Meditation extends Component {
@@ -256,7 +258,7 @@ class Meditation extends Component {
     }
 
     return (
-      <div>
+      <ComponentBackground>
         <h3>Meditation</h3>
         <ShowTracked time={time} />
         {timeInput}
@@ -279,7 +281,7 @@ class Meditation extends Component {
           onPlaying={this.handleSongPlaying}
           onFinishedPlaying={this.handleSongFinishedPlaying}
         />
-      </div>
+      </ComponentBackground>
     );
   }
 }

@@ -110,7 +110,6 @@ class App extends Component {
             selectedDays={this.props.daysArray}
             onDayClick={date => this.clickDay(date)}
           />
-          <h3>Reflection</h3>
           <Entry selectedMediflection={this.props.selectedMediflection} />
           <Meditation
             today={this.state.today}
