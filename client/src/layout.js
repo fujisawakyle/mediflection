@@ -8,3 +8,5 @@ export const Container = styled.div`
     color:red;
   `};
 `;
+
+export const Header = styled.div`background: #4a90e2;`;
