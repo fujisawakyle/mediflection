@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { HeaderStyle } from '../layout';
 
 import * as actions from '../actions';
 
 const Title = styled.h1`
   font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+  text-align: left;
 `;
 
 class Header extends Component {
@@ -31,10 +31,10 @@ class Header extends Component {
   }
   render() {
     return (
-      <div>
+      <HeaderStyle>
         <Title>Mediflection</Title>
         {this.renderUserStatus()}
-      </div>
+      </HeaderStyle>
     );
   }
 }

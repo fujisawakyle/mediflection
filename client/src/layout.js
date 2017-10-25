@@ -9,4 +9,4 @@ export const Container = styled.div`
   `};
 `;
 
-export const Header = styled.div`background: #4a90e2;`;
+export const HeaderStyle = styled.div`background: #4a90e2;`;
