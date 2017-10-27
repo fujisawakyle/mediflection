@@ -33,7 +33,7 @@ class Meditation extends Component {
     event.preventDefault();
     //set input lower bound to 1
     if (event.target.value < 1) {
-      event.target.value = 0;
+      event.target.value = 1;
     }
     this.setState({
       value: event.target.value,
