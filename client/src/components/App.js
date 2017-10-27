@@ -110,14 +110,13 @@ class App extends Component {
             selectedDays={this.props.daysArray}
             onDayClick={date => this.clickDay(date)}
           />
-          <Entry selectedMediflection={this.props.selectedMediflection} />
+          <WeekChart today={this.state.today} />
           <Meditation
             today={this.state.today}
             showInput={this.state.showInput}
             selectedMediflection={this.props.selectedMediflection}
           />
-          <h3>This week's practice</h3>
-          <WeekChart today={this.state.today} />
+          <Entry selectedMediflection={this.props.selectedMediflection} />
         </ComponentsContainer>
       );
     } else if (!this.props.user) {

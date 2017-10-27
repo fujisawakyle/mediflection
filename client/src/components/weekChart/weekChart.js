@@ -78,6 +78,7 @@ class WeekChart extends Component {
       console.log('today');
       chartData = (
         <div>
+          <h3>This week's practice</h3>
           <Bar
             redraw={true}
             data={this.state.chartData}
