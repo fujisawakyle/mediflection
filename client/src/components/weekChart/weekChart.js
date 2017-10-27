@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
 import { defaults } from 'react-chartjs-2';
+import styled from 'styled-components';
 
 import * as actions from '../../actions';
+const Container = styled.div`width: 100%;`;
 
 defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
-//make API call to update data.
-//look for the keys that are the date and then retrieve
-//data for the week. if there's no stored date, the
-//time will default to 0
+defaults.global.responsive = true;
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -82,28 +81,21 @@ class WeekChart extends Component {
             redraw={true}
             data={this.state.chartData}
             options={this.state.options}
-            width={300}
-            height={150}
           />
         </div>
       );
     } else {
       chartData = (
         <div>
-          <Bar
-            data={this.state.chartData}
-            options={this.state.options}
-            width={300}
-            height={150}
-          />
+          <Bar data={this.state.chartData} options={this.state.options} />
         </div>
       );
     }
     return (
-      <div>
+      <Container>
         <h3 className="testingkyle">This week's practice</h3>
         {chartData}
-      </div>
+      </Container>
     );
   }
 }
