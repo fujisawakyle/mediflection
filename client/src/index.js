@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 //thunk allows us to not execute an action right when the action creator is called
 import reduxThunk from 'redux-thunk';
+import 'normalize.css';
 
 import App from './components/App';
 import reducers from './reducers';
