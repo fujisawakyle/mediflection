@@ -5,6 +5,7 @@ import { defaults } from 'react-chartjs-2';
 import styled from 'styled-components';
 
 import * as actions from '../../actions';
+import { ComponentBackground } from '../../styles/layout';
 const Container = styled.div`width: 100%;`;
 
 defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
@@ -93,8 +94,10 @@ class WeekChart extends Component {
     }
     return (
       <Container>
-        <h3 className="testingkyle">This week's practice</h3>
-        {chartData}
+        <ComponentBackground>
+          <h3 className="testingkyle">This week's practice</h3>
+          {chartData}
+        </ComponentBackground>
       </Container>
     );
   }

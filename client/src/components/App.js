@@ -12,7 +12,7 @@ import ShowDate from './ShowDate/ShowDate';
 import Meditation from './meditation/Meditation';
 import WeekChart from './weekChart/WeekChart';
 
-import { ComponentsContainer } from '../styles/layout';
+import { FlexColumn, ComponentBackground, MediaFlex } from '../styles/layout';
 
 import '../styles/globalStyle';
 
@@ -82,14 +82,14 @@ class App extends Component {
         return;
       case false:
         return (
-          <ComponentsContainer>
+          <FlexColumn>
             <h1>Welcome to Mediflection</h1>
             <h4>Track your meditation, track your reflection</h4>
 
             <a href="/auth/google">
               <h4>Login with Google</h4>
             </a>
-          </ComponentsContainer>
+          </FlexColumn>
         );
     }
   }
@@ -101,22 +101,30 @@ class App extends Component {
       this.props.chartArray.length > 0
     ) {
       return (
-        <ComponentsContainer>
+        <FlexColumn>
           <h4>You are signed in</h4>
           <ShowDate date={this.state.showDate} />
-          <DayPicker
-            todayButton="current month"
-            selectedDays={this.props.daysArray}
-            onDayClick={date => this.clickDay(date)}
-          />
-          <WeekChart today={this.state.today} />
-          <Meditation
-            today={this.state.today}
-            showInput={this.state.showInput}
-            selectedMediflection={this.props.selectedMediflection}
-          />
-          <Entry selectedMediflection={this.props.selectedMediflection} />
-        </ComponentsContainer>
+          <MediaFlex>
+            <FlexColumn>
+              <ComponentBackground>
+                <DayPicker
+                  todayButton="current month"
+                  selectedDays={this.props.daysArray}
+                  onDayClick={date => this.clickDay(date)}
+                />
+              </ComponentBackground>
+              <WeekChart today={this.state.today} />
+            </FlexColumn>
+            <FlexColumn>
+              <Meditation
+                today={this.state.today}
+                showInput={this.state.showInput}
+                selectedMediflection={this.props.selectedMediflection}
+              />
+              <Entry selectedMediflection={this.props.selectedMediflection} />
+            </FlexColumn>
+          </MediaFlex>
+        </FlexColumn>
       );
     } else if (!this.props.user) {
       return <div />;

@@ -10,11 +10,13 @@ export const ComponentBackground = styled.div`
 `};
 `;
 
-export const ComponentsContainer = styled.div`
+export const FlexColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  max-width: 35em;
 `;
 
 export const ComponentButton = styled.button`
@@ -25,4 +27,11 @@ export const ComponentButton = styled.button`
   color: white;
   font-size: 0.875em;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+`;
+
+export const MediaFlex = styled(FlexColumn)`\
+  ${media.md`
+    flex-direction:row;
+    justify-content: space-evenly;
+  `}
 `;
