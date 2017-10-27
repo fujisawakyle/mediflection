@@ -236,7 +236,6 @@ class Meditation extends Component {
         if (this.state.timerDoneFlag) {
           console.log('this.state.timerDoneFlag', this.state.timerDoneFlag);
           buttonDisplay = <div>{exitButton}</div>;
-          //
         } else {
           buttonDisplay = (
             <div>

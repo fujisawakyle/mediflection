@@ -15,7 +15,6 @@ import WeekChart from './weekChart/WeekChart';
 import { ComponentsContainer } from '../styles/layout';
 
 import '../styles/globalStyle';
-import 'react-day-picker/lib/style.css';
 
 const today = String(new Date()).slice(0, 15);
 

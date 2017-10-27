@@ -78,7 +78,6 @@ class WeekChart extends Component {
       console.log('today');
       chartData = (
         <div>
-          <h3>This week's practice</h3>
           <Bar
             redraw={true}
             data={this.state.chartData}
@@ -100,7 +99,12 @@ class WeekChart extends Component {
         </div>
       );
     }
-    return <div>{chartData}</div>;
+    return (
+      <div>
+        <h3 className="testingkyle">This week's practice</h3>
+        {chartData}
+      </div>
+    );
   }
 }
 function mapStateToProps({ chartArray }) {
