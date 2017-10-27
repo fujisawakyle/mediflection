@@ -16,3 +16,13 @@ export const ComponentsContainer = styled.div`
   align-items: center;
   text-align: center;
 `;
+
+export const ComponentButton = styled.button`
+  border: none;
+  background-color: #4a90e2;
+  box-shadow: none;
+  cursor: pointer;
+  color: white;
+  font-size: 0.875em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+`;

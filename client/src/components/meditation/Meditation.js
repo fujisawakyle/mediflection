@@ -7,7 +7,7 @@ import Sound from 'react-sound';
 import ShowTracked from './showTracked';
 import ShowRemaining from './ShowRemaining';
 
-import { ComponentBackground } from '../../styles/layout';
+import { ComponentBackground, ComponentButton } from '../../styles/layout';
 
 import * as actions from '../../actions';
 
@@ -195,7 +195,6 @@ class Meditation extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-
           {minutesInput}
         </div>
       );
@@ -205,27 +204,30 @@ class Meditation extends Component {
 
     let buttonDisplay;
     const startButton = (
-      <button className="button startButton" onClick={this.startTimer}>
+      <ComponentButton className="button startButton" onClick={this.startTimer}>
         Start
-      </button>
+      </ComponentButton>
     );
     const continueButton = (
-      <button className="button continueButton" onClick={this.continueTimer}>
+      <ComponentButton
+        className="button continueButton"
+        onClick={this.continueTimer}
+      >
         Continue
-      </button>
+      </ComponentButton>
     );
     const exitButton = (
-      <button
+      <ComponentButton
         className="button timer__exit timer__exit--active"
         onClick={this.exitTimer}
       >
         X
-      </button>
+      </ComponentButton>
     );
     const pauseButton = (
-      <button className="button" onClick={this.pauseTimer}>
+      <ComponentButton className="button" onClick={this.pauseTimer}>
         Pause
-      </button>
+      </ComponentButton>
     );
     if (this.props.today) {
       //CASE: timer in session - check for finished

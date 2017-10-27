@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-import { ComponentBackground } from '../../styles/layout';
+import { ComponentBackground, ComponentButton } from '../../styles/layout';
 
 //this grabs input from props // es6
 class Entry extends Component {
@@ -37,9 +37,12 @@ class Entry extends Component {
           value={this.state.entry}
           placeholder="Today's meditation was:"
         />
-        <button onClick={() => this.update(this.state.entry)} type="submit">
+        <ComponentButton
+          onClick={() => this.update(this.state.entry)}
+          type="submit"
+        >
           Submit
-        </button>
+        </ComponentButton>
       </ComponentBackground>
     );
   }
