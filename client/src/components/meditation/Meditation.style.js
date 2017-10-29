@@ -3,4 +3,4 @@ import media from '../../styles/media';
 
 import { ComponentBackground } from '../../styles/layout';
 
-export const DateWrapper = styled(ComponentBackground)`flex: 1;`;
+export const Container = styled(ComponentBackground)`flex: 2;`;

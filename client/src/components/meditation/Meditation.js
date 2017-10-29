@@ -8,6 +8,7 @@ import ShowTracked from './showTracked';
 import ShowRemaining from './ShowRemaining';
 
 import { ComponentBackground, ComponentButton } from '../../styles/layout';
+import { Container } from './Meditation.style';
 
 import * as actions from '../../actions';
 
@@ -259,30 +260,32 @@ class Meditation extends Component {
     }
 
     return (
-      <ComponentBackground>
-        <h3>Meditation</h3>
-        <ShowTracked time={time} />
-        {timeInput}
+      <Container>
+        <ComponentBackground>
+          <h3>Meditation</h3>
+          <ShowTracked time={time} />
+          {timeInput}
 
-        {this.state.showTimer && (
-          <ShowRemaining
-            hours={this.state.timeLeft.h}
-            minutes={this.state.timeLeft.m}
-            seconds={this.state.timeLeft.s}
-            logTime={this.state.logTime}
+          {this.state.showTimer && (
+            <ShowRemaining
+              hours={this.state.timeLeft.h}
+              minutes={this.state.timeLeft.m}
+              seconds={this.state.timeLeft.s}
+              logTime={this.state.logTime}
+            />
+          )}
+          {buttonDisplay}
+
+          <Sound
+            url="sessionBell.mp3"
+            playStatus={this.state.playStatus}
+            playFromPosition={0 /* in milliseconds */}
+            onLoading={this.handleSongLoading}
+            onPlaying={this.handleSongPlaying}
+            onFinishedPlaying={this.handleSongFinishedPlaying}
           />
-        )}
-        {buttonDisplay}
-
-        <Sound
-          url="sessionBell.mp3"
-          playStatus={this.state.playStatus}
-          playFromPosition={0 /* in milliseconds */}
-          onLoading={this.handleSongLoading}
-          onPlaying={this.handleSongPlaying}
-          onFinishedPlaying={this.handleSongFinishedPlaying}
-        />
-      </ComponentBackground>
+        </ComponentBackground>
+      </Container>
     );
   }
 }

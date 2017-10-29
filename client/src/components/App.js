@@ -12,7 +12,16 @@ import ShowDate from './ShowDate/ShowDate';
 import Meditation from './meditation/Meditation';
 import WeekChart from './weekChart/WeekChart';
 
-import { FlexColumn, ComponentBackground, MediaFlex } from '../styles/layout';
+import {
+  FlexColumn,
+  ComponentBackground,
+  MediaFlex,
+  MainWrapper,
+  ComponentWrapper,
+  ComponentColumn
+} from '../styles/layout';
+
+import { DateWrapper } from './ShowDate/ShowDate.style';
 
 import '../styles/globalStyle';
 
@@ -101,11 +110,12 @@ class App extends Component {
       this.props.chartArray.length > 0
     ) {
       return (
-        <FlexColumn>
-          <h4>You are signed in</h4>
-          <ShowDate date={this.state.showDate} />
+        <ComponentWrapper>
+          <DateWrapper>
+            <ShowDate date={this.state.showDate} />
+          </DateWrapper>
           <MediaFlex>
-            <FlexColumn>
+            {/* <FlexColumn>
               <ComponentBackground>
                 <DayPicker
                   todayButton="current month"
@@ -114,17 +124,25 @@ class App extends Component {
                 />
               </ComponentBackground>
               <WeekChart today={this.state.today} />
-            </FlexColumn>
-            <FlexColumn>
+            </FlexColumn> */}
+            <ComponentColumn>
               <Meditation
                 today={this.state.today}
                 showInput={this.state.showInput}
                 selectedMediflection={this.props.selectedMediflection}
               />
               <Entry selectedMediflection={this.props.selectedMediflection} />
-            </FlexColumn>
+            </ComponentColumn>
+            <ComponentColumn>
+              <Meditation
+                today={this.state.today}
+                showInput={this.state.showInput}
+                selectedMediflection={this.props.selectedMediflection}
+              />
+              <Entry selectedMediflection={this.props.selectedMediflection} />
+            </ComponentColumn>
           </MediaFlex>
-        </FlexColumn>
+        </ComponentWrapper>
       );
     } else if (!this.props.user) {
       return <div />;
@@ -139,11 +157,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <MainWrapper>
         <Header />
         {this.renderLogin()}
         {this.renderContent()}
-      </div>
+      </MainWrapper>
     );
   }
 }
