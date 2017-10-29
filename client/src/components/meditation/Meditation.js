@@ -261,30 +261,26 @@ class Meditation extends Component {
 
     return (
       <Container>
-        <ComponentBackground>
-          <h3>Meditation</h3>
-          <ShowTracked time={time} />
-          {timeInput}
-
-          {this.state.showTimer && (
-            <ShowRemaining
-              hours={this.state.timeLeft.h}
-              minutes={this.state.timeLeft.m}
-              seconds={this.state.timeLeft.s}
-              logTime={this.state.logTime}
-            />
-          )}
-          {buttonDisplay}
-
-          <Sound
-            url="sessionBell.mp3"
-            playStatus={this.state.playStatus}
-            playFromPosition={0 /* in milliseconds */}
-            onLoading={this.handleSongLoading}
-            onPlaying={this.handleSongPlaying}
-            onFinishedPlaying={this.handleSongFinishedPlaying}
+        <h3>Meditation</h3>
+        <ShowTracked time={time} />
+        {timeInput}
+        {this.state.showTimer && (
+          <ShowRemaining
+            hours={this.state.timeLeft.h}
+            minutes={this.state.timeLeft.m}
+            seconds={this.state.timeLeft.s}
+            logTime={this.state.logTime}
           />
-        </ComponentBackground>
+        )}
+        {buttonDisplay}
+        <Sound
+          url="sessionBell.mp3"
+          playStatus={this.state.playStatus}
+          playFromPosition={0 /* in milliseconds */}
+          onLoading={this.handleSongLoading}
+          onPlaying={this.handleSongPlaying}
+          onFinishedPlaying={this.handleSongFinishedPlaying}
+        />
       </Container>
     );
   }

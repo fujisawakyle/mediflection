@@ -25,6 +25,10 @@ injectGlobal`
         text-decoration: underline;
     }
 
+    textarea {
+      resize: none;
+    }
+
     
 
 .DayPicker {
@@ -122,11 +126,17 @@ injectGlobal`
   
   .DayPicker-Day {
     display: table-cell;
-    padding: 2vw;
+    padding: 2vw 2.2vw;
     //border: 1px solid #000;
     text-align: center;
     cursor: pointer;
     vertical-align: middle;
+    ${media.xs`
+    padding: 2vw 3.5vw;
+    `}
+    ${media.sm`
+    padding: 2vw 4vw;  
+    `}
   }
   
   .DayPicker-WeekNumber {

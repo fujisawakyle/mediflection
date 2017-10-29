@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-import { ComponentBackground, ComponentButton } from '../../styles/layout';
+import {
+  FlexColumn,
+  ComponentBackground,
+  ComponentButton
+} from '../../styles/layout';
+
+import { Text } from './Entry.style';
 
 //this grabs input from props // es6
 class Entry extends Component {
@@ -30,19 +36,21 @@ class Entry extends Component {
   render() {
     return (
       <ComponentBackground>
-        <h3>Reflection</h3>
-        <textarea
-          autoComplete="off"
-          onChange={this.handleChange}
-          value={this.state.entry}
-          placeholder="Today's meditation was:"
-        />
-        <ComponentButton
-          onClick={() => this.update(this.state.entry)}
-          type="submit"
-        >
-          Submit
-        </ComponentButton>
+        <FlexColumn>
+          <h3>Reflection</h3>
+          <Text
+            autoComplete="off"
+            onChange={this.handleChange}
+            value={this.state.entry}
+            placeholder="Today's meditation was:"
+          />
+          <ComponentButton
+            onClick={() => this.update(this.state.entry)}
+            type="submit"
+          >
+            Submit
+          </ComponentButton>
+        </FlexColumn>
       </ComponentBackground>
     );
   }

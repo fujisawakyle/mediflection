@@ -110,12 +110,12 @@ class App extends Component {
       this.props.chartArray.length > 0
     ) {
       return (
-        <ComponentWrapper>
-          <DateWrapper>
+        <FlexColumn>
+          <div>
             <ShowDate date={this.state.showDate} />
-          </DateWrapper>
+          </div>
           <MediaFlex>
-            {/* <FlexColumn>
+            <ComponentColumn>
               <ComponentBackground>
                 <DayPicker
                   todayButton="current month"
@@ -124,14 +124,6 @@ class App extends Component {
                 />
               </ComponentBackground>
               <WeekChart today={this.state.today} />
-            </FlexColumn> */}
-            <ComponentColumn>
-              <Meditation
-                today={this.state.today}
-                showInput={this.state.showInput}
-                selectedMediflection={this.props.selectedMediflection}
-              />
-              <Entry selectedMediflection={this.props.selectedMediflection} />
             </ComponentColumn>
             <ComponentColumn>
               <Meditation
@@ -142,7 +134,7 @@ class App extends Component {
               <Entry selectedMediflection={this.props.selectedMediflection} />
             </ComponentColumn>
           </MediaFlex>
-        </ComponentWrapper>
+        </FlexColumn>
       );
     } else if (!this.props.user) {
       return <div />;
@@ -157,11 +149,11 @@ class App extends Component {
 
   render() {
     return (
-      <MainWrapper>
+      <div>
         <Header />
         {this.renderLogin()}
         {this.renderContent()}
-      </MainWrapper>
+      </div>
     );
   }
 }

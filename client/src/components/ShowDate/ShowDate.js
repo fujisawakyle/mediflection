@@ -3,8 +3,8 @@ import { ComponentBackground } from '../../styles/layout';
 
 export default ({ date }) => {
   return (
-    <div>
+    <ComponentBackground>
       <h4> {date}</h4>
-    </div>
+    </ComponentBackground>
   );
 };

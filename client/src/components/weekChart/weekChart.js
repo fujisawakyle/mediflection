@@ -5,8 +5,8 @@ import { defaults } from 'react-chartjs-2';
 import styled from 'styled-components';
 
 import * as actions from '../../actions';
-import { ComponentBackground } from '../../styles/layout';
-const Container = styled.div`width: 100%;`;
+import { ComponentBackground, FlexColumn } from '../../styles/layout';
+import { ChartContainer } from './WeekChart.style';
 
 defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
 defaults.global.responsive = true;
@@ -77,28 +77,28 @@ class WeekChart extends Component {
     if (this.props.today) {
       console.log('today');
       chartData = (
-        <div>
+        <ChartContainer>
           <Bar
             redraw={true}
             data={this.state.chartData}
             options={this.state.options}
           />
-        </div>
+        </ChartContainer>
       );
     } else {
       chartData = (
-        <div>
+        <ChartContainer>
           <Bar data={this.state.chartData} options={this.state.options} />
-        </div>
+        </ChartContainer>
       );
     }
     return (
-      <Container>
-        <ComponentBackground>
-          <h3 className="testingkyle">This week's practice</h3>
+      <ComponentBackground>
+        <FlexColumn>
+          <h3>This week's practice</h3>
           {chartData}
-        </ComponentBackground>
-      </Container>
+        </FlexColumn>
+      </ComponentBackground>
     );
   }
 }
