@@ -18,7 +18,8 @@ import {
   MediaFlex,
   MainWrapper,
   ComponentWrapper,
-  ComponentColumn
+  ComponentColumn,
+  ComponentColumn2
 } from '../styles/layout';
 
 import { DateWrapper } from './ShowDate/ShowDate.style';
@@ -118,6 +119,7 @@ class App extends Component {
             <ComponentColumn>
               <ComponentBackground>
                 <DayPicker
+                  enableOutsideDays
                   todayButton="current month"
                   selectedDays={this.props.daysArray}
                   onDayClick={date => this.clickDay(date)}
@@ -125,14 +127,14 @@ class App extends Component {
               </ComponentBackground>
               <WeekChart today={this.state.today} />
             </ComponentColumn>
-            <ComponentColumn>
+            <ComponentColumn2>
               <Meditation
                 today={this.state.today}
                 showInput={this.state.showInput}
                 selectedMediflection={this.props.selectedMediflection}
               />
               <Entry selectedMediflection={this.props.selectedMediflection} />
-            </ComponentColumn>
+            </ComponentColumn2>
           </MediaFlex>
         </FlexColumn>
       );

@@ -9,7 +9,6 @@ import { ComponentBackground, FlexColumn } from '../../styles/layout';
 import { ChartContainer } from './WeekChart.style';
 
 defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
-defaults.global.responsive = true;
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 

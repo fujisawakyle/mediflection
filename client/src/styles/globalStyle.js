@@ -2,12 +2,13 @@ import { injectGlobal } from 'styled-components';
 import media from '../styles/media';
 
 injectGlobal`
-    @import url('https://fonts.googleapis.com/css?family=Bungee+Hairline');
 
     body {
         background: linear-gradient(to left top, #1687c0, #040711) fixed;
         color: white;
+        font-family: Arial;
         font-family: 'Bungee Hairline', cursive;
+        
         margin: 0;
     }
 
@@ -78,13 +79,19 @@ injectGlobal`
   .DayPicker-NavButton--prev {
     left: 1.5em;
     top: 1em;
-    background-image: url("../images/svg/left-cal-arrow.svg");
+    width: 1.5em;
+    height: 1.5em;
+    background-color: rgba(255,255,255,0.6);
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI2cHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDI2IDUwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy4zLjIgKDEyMDQzKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5wcmV2PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+CiAgICAgICAgPGcgaWQ9InByZXYiIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzLjM5MzE5MywgMjUuMDAwMDAwKSBzY2FsZSgtMSwgMSkgdHJhbnNsYXRlKC0xMy4zOTMxOTMsIC0yNS4wMDAwMDApIHRyYW5zbGF0ZSgwLjg5MzE5MywgMC4wMDAwMDApIiBmaWxsPSIjNTY1QTVDIj4KICAgICAgICAgICAgPHBhdGggZD0iTTAsNDkuMTIzNzMzMSBMMCw0NS4zNjc0MzQ1IEwyMC4xMzE4NDU5LDI0LjcyMzA2MTIgTDAsNC4yMzEzODMxNCBMMCwwLjQ3NTA4NDQ1OSBMMjUsMjQuNzIzMDYxMiBMMCw0OS4xMjM3MzMxIEwwLDQ5LjEyMzczMzEgWiIgaWQ9InJpZ2h0IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K");
   }
   
   .DayPicker-NavButton--next {
     right: 1.5rem;
     top: 1em;
-    background-image: url('../images/svg/right-cal-arrow.svg');
+    width: 1.5em;
+    height: 1.5em;
+    background-color: rgba(255,255,255,0.7);
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI2cHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDI2IDUwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy4zLjIgKDEyMDQzKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5uZXh0PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+CiAgICAgICAgPGcgaWQ9Im5leHQiIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuOTUxNDUxLCAwLjAwMDAwMCkiIGZpbGw9IiM1NjVBNUMiPgogICAgICAgICAgICA8cGF0aCBkPSJNMCw0OS4xMjM3MzMxIEwwLDQ1LjM2NzQzNDUgTDIwLjEzMTg0NTksMjQuNzIzMDYxMiBMMCw0LjIzMTM4MzE0IEwwLDAuNDc1MDg0NDU5IEwyNSwyNC43MjMwNjEyIEwwLDQ5LjEyMzczMzEgTDAsNDkuMTIzNzMzMSBaIiBpZD0icmlnaHQiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=");
   }
   
   .DayPicker-NavButton--interactionDisabled {
@@ -114,6 +121,7 @@ injectGlobal`
     color: white;
     abbr {
       cursor: default;
+      text-decoration:none;
     }
   }
   
@@ -128,16 +136,21 @@ injectGlobal`
   .DayPicker-Day {
     display: table-cell;
     padding: 2vw 2.2vw;
-    //border: 1px solid #000;
     text-align: center;
     cursor: pointer;
     vertical-align: middle;
     ${media.xs`
-    padding: 2vw 3.5vw;
+      padding: 2vw 3.5vw;
     `}
     ${media.sm`
-    padding: 2vw 4vw;  
+      padding: 2vw 4vw;  
     `}
+    ${media.md`
+      padding: 2.2vw 2.2vw;
+    `}
+    ${media.lg`
+    padding: 1.4em;
+  `}
   }
   
   .DayPicker-WeekNumber {
@@ -171,7 +184,7 @@ injectGlobal`
     font-size: 0.8em;
     position: absolute;
     left: 50%;
-    top: 89.5%;
+    bottom: 2.1%;
     transform: translateX(-50%)
   }
   
@@ -185,7 +198,7 @@ injectGlobal`
   
   .DayPicker-Day--outside {
     cursor: default;
-    color: #dce0e0;
+    color: #7d7d7d;
   }
   
   /* Example modifiers */
@@ -213,11 +226,6 @@ injectGlobal`
   .DayPicker-Day--today {
     border: 2px solid rgba(4, 199, 255, 0.89);
     font-weight: 500;
-  }
-  .DayPicker-Day--today:focus {
-    color: #fff;
-    font-weight: 500;
-    //border:2px solid green;
   }
   
   /* DayPickerInput */

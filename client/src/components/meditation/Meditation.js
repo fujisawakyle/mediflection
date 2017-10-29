@@ -7,7 +7,11 @@ import Sound from 'react-sound';
 import ShowTracked from './showTracked';
 import ShowRemaining from './ShowRemaining';
 
-import { ComponentBackground, ComponentButton } from '../../styles/layout';
+import {
+  ComponentBackground,
+  ComponentButton,
+  ComponentTitle
+} from '../../styles/layout';
 import { Container, Input } from './Meditation.style';
 
 import * as actions from '../../actions';
@@ -19,7 +23,7 @@ class Meditation extends Component {
     this.state = {
       timeLeft: this.secondsToTime(60),
       seconds: 60,
-      logTime: 10,
+      logTime: 60,
       showInput: this.props.showInput,
       showTimer: false,
       startCountdown: false,
@@ -28,6 +32,10 @@ class Meditation extends Component {
       timer: 0,
       time: this.props.selectedMediflection.time
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('nextProps', nextProps);
   }
 
   handleChange = event => {
@@ -151,19 +159,20 @@ class Meditation extends Component {
       logTime: log
     });
 
-    // Check if we're at zero.
+    // Check if the session is done.
     if (seconds === 0) {
       clearInterval(this.state.timer);
       this.setState({
-        timerDoneFlag: true
+        timerDoneFlag: true,
+        playStatus: Sound.status.PLAYING
       });
-      this.handleSongStartPlaying();
+      // this.handleSongStartPlaying();
     }
 
     //log time every 1 minute
     if (log === 0) {
       this.setState({
-        logTime: 10,
+        logTime: 60,
         time: this.state.time + 1
       });
 
@@ -235,7 +244,6 @@ class Meditation extends Component {
       if (this.state.startCountdown && this.state.showTimer) {
         // console.log(' 1');
         if (this.state.timerDoneFlag) {
-          console.log('this.state.timerDoneFlag', this.state.timerDoneFlag);
           buttonDisplay = <div>{exitButton}</div>;
         } else {
           buttonDisplay = (
@@ -246,11 +254,9 @@ class Meditation extends Component {
         }
         // CASE: timer has not started
       } else if (!this.state.startCountdown && !this.state.showTimer) {
-        // console.log('2');
         buttonDisplay = <div>{startButton}</div>;
         // CASE: timer is paused
       } else if (!this.state.startCountdown && this.state.showTimer) {
-        // console.log('3');
         buttonDisplay = (
           <div>
             {continueButton} {exitButton}
@@ -261,7 +267,7 @@ class Meditation extends Component {
 
     return (
       <Container>
-        <h3>Meditation</h3>
+        <ComponentTitle>Meditation</ComponentTitle>
         <ShowTracked time={time} />
         {timeInput}
         {this.state.showTimer && (

@@ -19,6 +19,15 @@ export const FlexColumn = styled.div`
 export const ComponentColumn = styled(FlexColumn)`
   width: 100%;
   display: flex;
+  padding: 0 0.5em;
+`;
+
+export const ComponentColumn2 = styled(FlexColumn)`
+  width: 100%;
+  display: flex;
+  padding: 0 0.5em;
+  justify-content: space-between;
+  align-items: stretch;
 `;
 
 export const ComponentButton = styled.button`
@@ -35,9 +44,15 @@ export const ComponentButton = styled.button`
 export const MediaFlex = styled(FlexColumn)`
   justify-content: space-evenly;
   width: 90vw;
+
   ${media.md`
     flex-direction:row;
     justify-content: space-evenly;
-    max-width: 65em;
+    align-items: stretch;
+  `};
+  ${media.lg`
+    width: 40em;
   `};
 `;
+
+export const ComponentTitle = styled.h2`font-size: 1.5em;`;

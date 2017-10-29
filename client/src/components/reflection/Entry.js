@@ -5,7 +5,8 @@ import * as actions from '../../actions';
 import {
   FlexColumn,
   ComponentBackground,
-  ComponentButton
+  ComponentButton,
+  ComponentTitle
 } from '../../styles/layout';
 
 import { Text } from './Entry.style';
@@ -37,7 +38,7 @@ class Entry extends Component {
     return (
       <ComponentBackground>
         <FlexColumn>
-          <h3>Reflection</h3>
+          <ComponentTitle>Reflection</ComponentTitle>
           <Text
             autoComplete="off"
             onChange={this.handleChange}

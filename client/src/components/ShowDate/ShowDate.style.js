@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const DateComponent = styled.div`
-  font-size: 3.5vw;
+  font-size: 1.4em;
   padding: 1em;
 `;
 

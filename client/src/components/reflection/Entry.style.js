@@ -8,5 +8,10 @@ export const Text = styled.textarea`
   background-color: rgba(255, 255, 255, 0.8);
   ${media.md`
     width: 32vw;
+    margin: 1em;
+  `};
+  ${media.lg`
+    height: 20.5em;
+    width: 19.5em;
   `};
 `;

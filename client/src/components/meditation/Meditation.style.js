@@ -3,7 +3,7 @@ import media from '../../styles/media';
 
 import { ComponentBackground } from '../../styles/layout';
 
-export const Container = styled(ComponentBackground)``;
+export const Container = styled(ComponentBackground)`flex: 1;`;
 
 export const Input = styled.input`
   background-color: rgba(255, 255, 255, 0.8);
@@ -12,4 +12,5 @@ export const Input = styled.input`
   height: 1em;
   width: 2.5em;
   text-align: right;
+  margin: 0.5em;
 `;
