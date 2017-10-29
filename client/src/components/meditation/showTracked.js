@@ -3,8 +3,8 @@ import pluralize from 'pluralize';
 
 export default props => {
   return (
-    <h5 className="timer__text">
+    <p>
       {props.time} {pluralize(' minute', props.time)}
-    </h5>
+    </p>
   );
 };

@@ -9,12 +9,6 @@ export const HeaderContainer = styled.div`
   margin-bottom: 1em;
 `;
 
-export const HeaderTitle = styled.h1`
-  font-size: 1.5em;
-  margin: 0.5em;
-`;
+export const HeaderTitle = styled.h1`font-size: 1.5em;`;
 
-export const HeaderButton = styled.h3`
-  font-size: 1em;
-  margin: 1em;
-`;
+export const HeaderButton = styled.h3`font-size: 1em;`;

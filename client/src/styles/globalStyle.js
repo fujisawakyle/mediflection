@@ -13,7 +13,7 @@ injectGlobal`
 
     h1, h2, h3, h4 {
         margin: 0;
-        padding: 0.5em;
+        padding: 0.3em;
     }
 
     a {
@@ -43,6 +43,7 @@ injectGlobal`
     user-select: none;
     flex-direction: row;
     padding: 1rem 0;
+    position: relative;
   }
   
   .DayPicker-Month {
@@ -162,14 +163,16 @@ injectGlobal`
   
   .DayPicker-TodayButton {
     border: none;
-    background-color: blue;
+    background-color: #4a90e2;
     box-shadow: none;
     cursor: pointer;
+    text-shadow: 0 0 10px rgba(0,0,0,0.9);
     color: white;
     font-size: 0.8em;
     position: absolute;
-    left: 32%;
+    left: 50%;
     top: 89.5%;
+    transform: translateX(-50%)
   }
   
   /* Default modifiers */
@@ -208,7 +211,7 @@ injectGlobal`
   }
   
   .DayPicker-Day--today {
-    border: 2px solid green;
+    border: 2px solid rgba(4, 199, 255, 0.89);
     font-weight: 500;
   }
   .DayPicker-Day--today:focus {

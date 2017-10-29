@@ -112,7 +112,7 @@ class App extends Component {
       return (
         <FlexColumn>
           <div>
-            <ShowDate date={this.state.showDate} />
+            <ShowDate today={this.state.today} date={this.state.showDate} />
           </div>
           <MediaFlex>
             <ComponentColumn>

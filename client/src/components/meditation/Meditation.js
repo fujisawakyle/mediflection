@@ -8,7 +8,7 @@ import ShowTracked from './showTracked';
 import ShowRemaining from './ShowRemaining';
 
 import { ComponentBackground, ComponentButton } from '../../styles/layout';
-import { Container } from './Meditation.style';
+import { Container, Input } from './Meditation.style';
 
 import * as actions from '../../actions';
 
@@ -190,7 +190,7 @@ class Meditation extends Component {
     if (this.state.showInput && this.props.today) {
       timeInput = (
         <div className="clockBox">
-          <input
+          <Input
             className="component component__field component__field--timer"
             type="number"
             value={this.state.value}

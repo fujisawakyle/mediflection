@@ -1,6 +1,12 @@
 import styled from 'styled-components';
-import media from '../../styles/media';
 
-import { ComponentBackground } from '../../styles/layout';
+const DateComponent = styled.div`
+  font-size: 3.5vw;
+  padding: 1em;
+`;
 
-export const DateWrapper = styled(ComponentBackground)`flex: 1;`;
+export const DayBorder = styled(DateComponent)`border: 2.5px solid white;`;
+
+export const TodayBorder = styled(DateComponent)`
+  border: 2.5px solid rgba(4, 199, 255, 0.89);
+`;
