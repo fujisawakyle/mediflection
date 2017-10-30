@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { ComponentButtonInverse } from '../../styles/layout';
+
 export const HeaderContainer = styled.div`
   background: #4a90e2;
   display: flex;

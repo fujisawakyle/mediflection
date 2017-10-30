@@ -11,7 +11,7 @@ export const Text = styled.textarea`
     margin: 1em;
   `};
   ${media.lg`
-    height: 20.5em;
+    height: 18.8em;
     width: 19.5em;
   `};
 `;

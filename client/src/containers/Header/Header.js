@@ -20,6 +20,7 @@ class Header extends Component {
         );
     }
   }
+
   render() {
     return (
       <HeaderContainer>

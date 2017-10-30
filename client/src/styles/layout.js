@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import media from './media';
 
+export const HomeScreenContainer = styled.div`
+  width: 90%;
+  max-width: 40em;
+`;
+
 export const ComponentBackground = styled.div`
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -38,7 +43,13 @@ export const ComponentButton = styled.button`
   color: white;
   font-size: 0.875em;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-  margin: 1em 0;
+  margin: 1em 0.5em;
+  font-family: 'Bungee Hairline', cursive;
+`;
+
+export const ComponentButtonInverse = styled(ComponentButton)`
+  color: #4a90e2;
+  background-color: white;
 `;
 
 export const MediaFlex = styled(FlexColumn)`

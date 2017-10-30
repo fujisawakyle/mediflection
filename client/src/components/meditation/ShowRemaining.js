@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { TimeRemaining } from './Meditation.style';
+
 export default class ShowRemaining extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ export default class ShowRemaining extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log('nextProps', nextProps);
+    console.log('nextProps', nextProps);
     // console.log('this.props', this.props);
     if (nextProps !== this.props) {
       // console.log('not equal');
@@ -39,13 +41,13 @@ export default class ShowRemaining extends Component {
       this.state.minutes === 0 &&
       this.state.seconds === 0
     ) {
-      showRemaining = 'session over';
+      showRemaining = 'Session over';
     } else if (this.state.hours === 0) {
       showRemaining = `${this.state.minutes}:${seconds}`;
     } else {
       showRemaining = `${this.state.hours}:${this.state.minutes}:${this.state
         .seconds}`;
     }
-    return <div className="timer__remaining">{showRemaining}</div>;
+    return <TimeRemaining>{showRemaining}</TimeRemaining>;
   }
 }

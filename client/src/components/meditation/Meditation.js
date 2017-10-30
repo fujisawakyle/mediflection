@@ -74,7 +74,7 @@ class Meditation extends Component {
     });
 
     if (this.state.timer == 0) {
-      this.state.timer = setInterval(this.countDown, 100);
+      this.state.timer = setInterval(this.countDown, 1000);
     }
 
     // document
@@ -114,8 +114,7 @@ class Meditation extends Component {
     this.setState({
       showTimer: false,
       startCountdown: false,
-      showInput: true,
-      seconds: this.props.seconds
+      showInput: true
     });
     //this.props.timerDoneReset();
   };

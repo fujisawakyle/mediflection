@@ -6,15 +6,28 @@ injectGlobal`
     body {
         background: linear-gradient(to left top, #1687c0, #040711) fixed;
         color: white;
-        font-family: Arial;
         font-family: 'Bungee Hairline', cursive;
-        
+
         margin: 0;
     }
 
     h1, h2, h3, h4 {
         margin: 0;
         padding: 0.3em;
+    }
+
+    h1 {
+      font-size: 1.9em;
+      ${media.xs`
+        font-size:2.5em;
+      `}
+    }
+
+    h3 {
+      font-size: 0.9em;
+      ${media.xs`
+        font-size:1em;
+      `}
     }
 
     a {
@@ -185,7 +198,8 @@ injectGlobal`
     position: absolute;
     left: 50%;
     bottom: 2.1%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    font-family: 'Bungee Hairline', cursive;
   }
   
   /* Default modifiers */

@@ -19,7 +19,8 @@ import {
   MainWrapper,
   ComponentWrapper,
   ComponentColumn,
-  ComponentColumn2
+  ComponentColumn2,
+  HomeScreenContainer
 } from '../styles/layout';
 
 import { DateWrapper } from './ShowDate/ShowDate.style';
@@ -36,7 +37,8 @@ class App extends Component {
       showDate: String(new Date()).slice(0, 15),
       today: true,
       showInput: true,
-      chartArray: []
+      chartArray: [],
+      style: 0
     };
   }
   componentDidMount() {
@@ -93,18 +95,21 @@ class App extends Component {
       case false:
         return (
           <FlexColumn>
-            <h1>Welcome to Mediflection</h1>
-            <h4>Track your meditation, track your reflection</h4>
+            <HomeScreenContainer>
+              <h1>Welcome to Mediflection</h1>
+              <h3>Track your meditation, track your reflection</h3>
 
-            <a href="/auth/google">
-              <h4>Login with Google</h4>
-            </a>
+              <a href="/auth/google">
+                <h4>Login with Google</h4>
+              </a>
+            </HomeScreenContainer>
           </FlexColumn>
         );
     }
   }
 
   renderContent() {
+    console.log('this.state.style', this.state.style);
     if (
       this.props.user &&
       !_.isEmpty(this.props.selectedMediflection) &&
@@ -148,6 +153,14 @@ class App extends Component {
       );
     }
   }
+
+  shiftStyle = () => {
+    if (this.state.style === 1) {
+      this.setState({ style: 0 });
+    } else {
+      this.setState({ style: this.state.style + 1 });
+    }
+  };
 
   render() {
     return (
