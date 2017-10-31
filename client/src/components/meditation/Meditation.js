@@ -54,7 +54,8 @@ class Meditation extends Component {
       showInput: false,
       startCountdown: true,
       timerDoneFlag: false,
-      timeLeft: this.secondsToTime(this.state.value * 60)
+      timeLeft: this.secondsToTime(this.state.value * 60),
+      seconds: this.state.value * 60
     });
     this.handleSongStartPlaying();
 
@@ -83,6 +84,12 @@ class Meditation extends Component {
 
   exitTimer = e => {
     this.handleSongFinishedPlaying();
+    // document
+    //   .getElementsByClassName('c-site__component--timer')[0]
+    //   .classList.remove('timer__window--open');
+    // document
+    //   .getElementsByClassName('timer__exit')[0]
+    //   .classList.remove('timer__exit--active');
     clearInterval(this.state.timer);
     this.state.timer = 0;
     this.setState({
@@ -140,17 +147,13 @@ class Meditation extends Component {
         timerDoneFlag: true,
         playStatus: Sound.status.PLAYING
       });
-      // this.handleSongStartPlaying();
     }
-
     //log time every 1 minute
     if (log === 0) {
       this.setState({
         logTime: 60,
         time: this.state.time + 1
       });
-
-      //log database
       const updatedMediflection = this.props.selectedMediflection;
       updatedMediflection.time = this.state.time;
       this.props.updateMediflection(updatedMediflection);
@@ -216,7 +219,6 @@ class Meditation extends Component {
     if (this.props.today) {
       //CASE: timer in session - check for finished
       if (this.state.startCountdown && this.state.showTimer) {
-        // console.log(' 1');
         if (this.state.timerDoneFlag) {
           buttonDisplay = <div>{exitButton}</div>;
         } else {
@@ -250,6 +252,7 @@ class Meditation extends Component {
             minutes={this.state.timeLeft.m}
             seconds={this.state.timeLeft.s}
             logTime={this.state.logTime}
+            timerStopped={timerStopped}
           />
         )}
         {buttonDisplay}
