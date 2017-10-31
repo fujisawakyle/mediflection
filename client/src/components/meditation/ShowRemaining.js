@@ -23,13 +23,32 @@ export default class ShowRemaining extends Component {
     }
   }
 
-  render() {
-    let seconds = this.state.seconds;
-    if (seconds === 0) {
-      seconds = '00';
-    } else if (seconds < 10) {
-      seconds = '0' + seconds;
+  checkZero = value => {
+    console.log('runit');
+    console.log(value);
+    if (value === 0) {
+      value = '00';
+    } else if (value < 10) {
+      value = '0' + value;
     }
+    return value;
+  };
+
+  render() {
+    let hours = this.state.hours;
+    let minutes = this.state.minutes;
+    let seconds = this.state.seconds;
+
+    hours = this.checkZero(hours);
+
+    minutes = this.checkZero(minutes);
+    seconds = this.checkZero(seconds);
+
+    // if (seconds === 0) {
+    //   seconds = '00';
+    // } else if (seconds < 10) {
+    //   seconds = '0' + seconds;
+    // }
 
     let showRemaining;
 
@@ -42,8 +61,7 @@ export default class ShowRemaining extends Component {
     } else if (this.state.hours === 0) {
       showRemaining = `${this.state.minutes}:${seconds}`;
     } else {
-      showRemaining = `${this.state.hours}:${this.state.minutes}:${this.state
-        .seconds}`;
+      showRemaining = `${hours}:${minutes}:${seconds}`;
     }
     return <TimeRemaining>{showRemaining}</TimeRemaining>;
   }
