@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import _ from 'lodash';
-import styled from 'styled-components';
 import DayPicker from 'react-day-picker';
-import Isvg from 'react-inlinesvg';
 
 import Header from '../containers/Header/Header';
 import Entry from './reflection/Entry';
@@ -16,14 +14,10 @@ import {
   FlexColumn,
   ComponentBackground,
   MediaFlex,
-  MainWrapper,
-  ComponentWrapper,
   ComponentColumn,
   ComponentColumn2,
   HomeScreenContainer
 } from '../styles/layout';
-
-import { DateWrapper } from './ShowDate/ShowDate.style';
 
 import '../styles/globalStyle';
 
@@ -58,7 +52,7 @@ class App extends Component {
   clickDay = date => {
     date = String(date).slice(0, 15);
 
-    if (today == date) {
+    if (today === date) {
       this.setState({ today: true, showInput: true });
     } else {
       this.setState({ today: false, showInput: false });
@@ -105,6 +99,8 @@ class App extends Component {
             </HomeScreenContainer>
           </FlexColumn>
         );
+      default:
+        return;
     }
   }
 

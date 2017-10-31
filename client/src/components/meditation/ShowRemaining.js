@@ -24,8 +24,6 @@ export default class ShowRemaining extends Component {
   }
 
   checkZero = value => {
-    console.log('runit');
-    console.log(value);
     if (value === 0) {
       value = '00';
     } else if (value < 10) {
@@ -35,20 +33,9 @@ export default class ShowRemaining extends Component {
   };
 
   render() {
-    let hours = this.state.hours;
-    let minutes = this.state.minutes;
-    let seconds = this.state.seconds;
-
-    hours = this.checkZero(hours);
-
-    minutes = this.checkZero(minutes);
-    seconds = this.checkZero(seconds);
-
-    // if (seconds === 0) {
-    //   seconds = '00';
-    // } else if (seconds < 10) {
-    //   seconds = '0' + seconds;
-    // }
+    let hours = this.checkZero(this.state.hours);
+    let minutes = this.checkZero(this.state.minutes);
+    let seconds = this.checkZero(this.state.seconds);
 
     let showRemaining;
 

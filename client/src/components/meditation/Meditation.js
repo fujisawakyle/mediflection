@@ -7,16 +7,10 @@ import Sound from 'react-sound';
 import ShowTracked from './showTracked';
 import ShowRemaining from './ShowRemaining';
 
-import {
-  ComponentBackground,
-  ComponentButton,
-  ComponentTitle
-} from '../../styles/layout';
+import { ComponentButton, ComponentTitle } from '../../styles/layout';
 import { Container, Input } from './Meditation.style';
 
 import * as actions from '../../actions';
-
-let timerStopped = false;
 
 class Meditation extends Component {
   constructor(props) {
@@ -59,8 +53,10 @@ class Meditation extends Component {
     });
     this.handleSongStartPlaying();
 
-    if (this.state.timer == 0) {
-      this.state.timer = setInterval(this.countDown, 1000);
+    if (this.state.timer === 0) {
+      this.setState({
+        timer: setInterval(this.countDown, 1000)
+      });
     }
   };
 
@@ -69,8 +65,10 @@ class Meditation extends Component {
       startCountdown: true
     });
     e.preventDefault();
-    if (this.state.timer == 0) {
-      this.state.timer = setInterval(this.countDown, 1000);
+    if (this.state.timer === 0) {
+      this.setState({
+        timer: setInterval(this.countDown, 1000)
+      });
     }
   };
 
@@ -84,12 +82,6 @@ class Meditation extends Component {
 
   exitTimer = e => {
     this.handleSongFinishedPlaying();
-    // document
-    //   .getElementsByClassName('c-site__component--timer')[0]
-    //   .classList.remove('timer__window--open');
-    // document
-    //   .getElementsByClassName('timer__exit')[0]
-    //   .classList.remove('timer__exit--active');
     clearInterval(this.state.timer);
     this.state.timer = 0;
     this.setState({
@@ -98,7 +90,6 @@ class Meditation extends Component {
       showInput: true,
       logTime: 60
     });
-    timerStopped = true;
   };
 
   handleSongStartPlaying = () => {
@@ -252,7 +243,6 @@ class Meditation extends Component {
             minutes={this.state.timeLeft.m}
             seconds={this.state.timeLeft.s}
             logTime={this.state.logTime}
-            timerStopped={timerStopped}
           />
         )}
         {buttonDisplay}
