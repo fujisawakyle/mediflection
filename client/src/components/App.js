@@ -98,9 +98,9 @@ class App extends Component {
             <HomeScreenContainer>
               <h1>Welcome to Mediflection</h1>
               <h3>Track your meditation, track your reflection</h3>
-
+              <h4>Login with: </h4>
               <a href="/auth/google">
-                <h4>Login with Google</h4>
+                <img src="../images/svg/google.svg" height="80" alt="Google" />
               </a>
             </HomeScreenContainer>
           </FlexColumn>
@@ -109,7 +109,6 @@ class App extends Component {
   }
 
   renderContent() {
-    console.log('this.state.style', this.state.style);
     if (
       this.props.user &&
       !_.isEmpty(this.props.selectedMediflection) &&

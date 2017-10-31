@@ -14,10 +14,7 @@ export default class ShowRemaining extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
-    // console.log('this.props', this.props);
     if (nextProps !== this.props) {
-      // console.log('not equal');
       this.setState({
         hours: nextProps.hours,
         minutes: nextProps.minutes,
@@ -27,7 +24,6 @@ export default class ShowRemaining extends Component {
   }
 
   render() {
-    // console.log('props in render', this.props);
     let seconds = this.state.seconds;
     if (seconds === 0) {
       seconds = '00';
@@ -36,6 +32,7 @@ export default class ShowRemaining extends Component {
     }
 
     let showRemaining;
+
     if (
       this.state.hours === 0 &&
       this.state.minutes === 0 &&

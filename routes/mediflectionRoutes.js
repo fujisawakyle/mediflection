@@ -11,7 +11,6 @@ module.exports = app => {
   });
 
   app.post('/api/mediflection/', async (req, res) => {
-    console.log('req.body', req.body);
     const { date, entry, time } = req.body;
 
     Mediflection.findOneAndUpdate(

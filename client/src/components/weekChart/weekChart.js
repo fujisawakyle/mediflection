@@ -55,7 +55,6 @@ class WeekChart extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
     this.setState({
       chartData: {
         labels: [days[0], days[1], days[2], days[3], days[4], days[5], days[6]],
@@ -71,10 +70,8 @@ class WeekChart extends Component {
   }
 
   render() {
-    console.log('chartArray', this.props.chartArray);
     let chartData;
     if (this.props.today) {
-      console.log('today');
       chartData = (
         <ChartContainer>
           <Bar

@@ -16,12 +16,13 @@ import { Container, Input } from './Meditation.style';
 
 import * as actions from '../../actions';
 
+let timerStopped = false;
+
 class Meditation extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      timeLeft: this.secondsToTime(60),
       seconds: 60,
       logTime: 60,
       showInput: this.props.showInput,
@@ -32,10 +33,6 @@ class Meditation extends Component {
       timer: 0,
       time: this.props.selectedMediflection.time
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
   }
 
   handleChange = event => {
@@ -52,35 +49,18 @@ class Meditation extends Component {
 
   startTimer = e => {
     e.preventDefault();
-    this.handleSongStartPlaying();
-    // if (this.props.timeVal == undefined) {
-    //   console.log('error');
-    //   // } else if (this.props.timeVal == 0) {
-    //   //     $('.timerBox').append('<div class="start">invalid!</div>');
-    //   //   setTimeout(function() {
-    //   //     $('.start')
-    //   //       .hide()
-    //   //       .fadeOut(1000);
-    //   //   }, 2000);
-    //   // }
-    // } else {
-
     this.setState({
       showTimer: true,
       showInput: false,
       startCountdown: true,
       timerDoneFlag: false,
-      seconds: this.state.value * 60
+      timeLeft: this.secondsToTime(this.state.value * 60)
     });
+    this.handleSongStartPlaying();
 
     if (this.state.timer == 0) {
       this.state.timer = setInterval(this.countDown, 1000);
     }
-
-    // document
-    //   .getElementsByClassName('c-site__component--timer')[0]
-    //   .classList.add('timer__window--open');
-    // }
   };
 
   continueTimer = e => {
@@ -103,20 +83,15 @@ class Meditation extends Component {
 
   exitTimer = e => {
     this.handleSongFinishedPlaying();
-    // document
-    //   .getElementsByClassName('c-site__component--timer')[0]
-    //   .classList.remove('timer__window--open');
-    // document
-    //   .getElementsByClassName('timer__exit')[0]
-    //   .classList.remove('timer__exit--active');
     clearInterval(this.state.timer);
     this.state.timer = 0;
     this.setState({
       showTimer: false,
       startCountdown: false,
-      showInput: true
+      showInput: true,
+      logTime: 60
     });
-    //this.props.timerDoneReset();
+    timerStopped = true;
   };
 
   handleSongStartPlaying = () => {
