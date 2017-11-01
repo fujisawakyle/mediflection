@@ -55,7 +55,7 @@ class Meditation extends Component {
 
     if (this.state.timer === 0) {
       this.setState({
-        timer: setInterval(this.countDown, 1000)
+        timer: setInterval(this.countDown, 100)
       });
     }
   };
@@ -74,17 +74,18 @@ class Meditation extends Component {
 
   pauseTimer = e => {
     clearInterval(this.state.timer);
-    this.state.timer = 0;
+
     this.setState({
-      startCountdown: false
+      startCountdown: false,
+      timer: 0
     });
   };
 
   exitTimer = e => {
     this.handleSongFinishedPlaying();
     clearInterval(this.state.timer);
-    this.state.timer = 0;
     this.setState({
+      timer: 0,
       showTimer: false,
       startCountdown: false,
       showInput: true,
@@ -156,10 +157,8 @@ class Meditation extends Component {
   };
 
   render() {
-    const { time } = this.props.selectedMediflection;
-
     let minutesInput = ' minute';
-    if (this.state.value != 1) {
+    if (this.state.value !== 1) {
       minutesInput = ' minutes';
     }
 
@@ -235,7 +234,7 @@ class Meditation extends Component {
     return (
       <Container>
         <ComponentTitle>Meditation</ComponentTitle>
-        <ShowTracked time={time} />
+        <ShowTracked time={this.state.time} />
         {timeInput}
         {this.state.showTimer && (
           <ShowRemaining
