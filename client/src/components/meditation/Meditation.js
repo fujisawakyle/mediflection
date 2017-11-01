@@ -131,15 +131,6 @@ class Meditation extends Component {
       seconds: seconds,
       logTime: log
     });
-
-    // Check if the session is done.
-    if (seconds === 0) {
-      clearInterval(this.state.timer);
-      this.setState({
-        timerDoneFlag: true,
-        playStatus: Sound.status.PLAYING
-      });
-    }
     //log time every 1 minute
     if (log === 0) {
       this.setState({
@@ -153,6 +144,14 @@ class Meditation extends Component {
         new Date(this.props.selectedMediflection.date)
       ]);
       this.props.updateChartArray(this.props.selectedMediflection.time);
+    }
+    // Check if the session is done.
+    if (seconds === 0) {
+      clearInterval(this.state.timer);
+      this.setState({
+        timerDoneFlag: true,
+        playStatus: Sound.status.PLAYING
+      });
     }
   };
 
@@ -234,7 +233,7 @@ class Meditation extends Component {
     return (
       <Container>
         <ComponentTitle>Meditation</ComponentTitle>
-        <ShowTracked time={this.state.time} />
+        <ShowTracked time={this.props.selectedMediflection.time} />
         {timeInput}
         {this.state.showTimer && (
           <ShowRemaining
