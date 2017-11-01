@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import _ from 'lodash';
-import DayPicker from 'react-day-picker';
 
-import Header from '../containers/Header/Header';
-import Entry from './reflection/Entry';
+import Header from './Header/Header';
+import Calendar from './Calendar/Calendar';
+import Reflection from './Reflection/Reflection';
 import ShowDate from './ShowDate/ShowDate';
-import Meditation from './meditation/Meditation';
-import WeekChart from './weekChart/WeekChart';
+import Meditation from './Meditation/Meditation';
+import WeekChart from './WeekChart/WeekChart';
 
 import {
   FlexColumn,
@@ -117,14 +117,10 @@ class App extends Component {
           </div>
           <MediaFlex>
             <ComponentColumn>
-              <ComponentBackground>
-                <DayPicker
-                  enableOutsideDays
-                  todayButton="current month"
-                  selectedDays={this.props.daysArray}
-                  onDayClick={date => this.clickDay(date)}
-                />
-              </ComponentBackground>
+              <Calendar
+                daysArray={this.props.daysArray}
+                clickDay={this.clickDay}
+              />
               <WeekChart today={this.state.today} />
             </ComponentColumn>
             <ComponentColumn2>
@@ -133,7 +129,9 @@ class App extends Component {
                 showInput={this.state.showInput}
                 selectedMediflection={this.props.selectedMediflection}
               />
-              <Entry selectedMediflection={this.props.selectedMediflection} />
+              <Reflection
+                selectedMediflection={this.props.selectedMediflection}
+              />
             </ComponentColumn2>
           </MediaFlex>
         </FlexColumn>

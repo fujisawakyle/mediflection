@@ -9,7 +9,7 @@ import {
   ComponentTitle
 } from '../../styles/layout';
 
-import { Text } from './Entry.style';
+import { Text } from './Reflection.style';
 
 //this grabs input from props // es6
 class Entry extends Component {
