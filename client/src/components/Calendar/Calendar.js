@@ -3,7 +3,7 @@ import DayPicker from 'react-day-picker';
 
 import { ComponentBackground } from '../../styles/layout';
 
-export default ({ daysArray, clickDay }) => {
+export default ({ daysArray, clickCalendarDate }) => {
   console.log('daysArray in Cal', daysArray);
   return (
     <ComponentBackground>
@@ -11,7 +11,7 @@ export default ({ daysArray, clickDay }) => {
         enableOutsideDays
         todayButton="current month"
         selectedDays={daysArray}
-        onDayClick={date => clickDay(date)}
+        onDayClick={date => clickCalendarDate(date)}
       />
     </ComponentBackground>
   );

@@ -6,6 +6,7 @@ export const Text = styled.textarea`
   width: 77vw;
   margin: 1em 0;
   background-color: rgba(255, 255, 255, 0.8);
+  font-family: 'Saira', sans-serif;
   ${media.md`
     width: 32vw;
     margin: 1em;

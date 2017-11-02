@@ -50,12 +50,7 @@ export const ComponentButton = styled.button`
   font-family: 'Bungee Hairline', cursive;
 `;
 
-export const ComponentButtonInverse = styled(ComponentButton)`
-  color: #4a90e2;
-  background-color: white;
-`;
-
-export const MediaFlex = styled(FlexColumn)`
+export const ComponentsContainer = styled(FlexColumn)`
   justify-content: space-evenly;
   width: 90vw;
 
@@ -70,3 +65,5 @@ export const MediaFlex = styled(FlexColumn)`
 `;
 
 export const ComponentTitle = styled.h2`font-size: 1.5em;`;
+
+export const Loading = styled(FlexColumn)`font-size: 2em;`;

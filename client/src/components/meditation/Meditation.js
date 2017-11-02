@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import pluralize from 'pluralize';
 import Sound from 'react-sound';
 
 import ShowTracked from './showTracked';
@@ -55,9 +54,12 @@ class Meditation extends Component {
 
     if (this.state.timer === 0) {
       this.setState({
-        timer: setInterval(this.countDown, 100)
+        timer: setInterval(this.countDown, 1000)
       });
     }
+    document
+      .getElementsByClassName('c-site__component--timer')[0]
+      .classList.add('timer--open');
   };
 
   continueTimer = e => {

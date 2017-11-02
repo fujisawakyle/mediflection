@@ -5,8 +5,8 @@ import {
   FETCH_MEDIFLECTION,
   UPDATE_MEDIFLECTION,
   UPDATE_DAYS_ARRAY,
-  CREATE_CHART_ARRAY,
-  UPDATE_CHART_ARRAY
+  CREATE_WEEK_CHART_ARRAY,
+  UPDATE_WEEK_CHART_ARRAY
 } from './types';
 
 //if redux thunk sees we return a function in a action creator,
@@ -49,16 +49,16 @@ export const updateDaysArray = dateArray => {
   };
 };
 
-export const createChartArray = chartArray => {
+export const createWeekChartArray = weekChartArray => {
   return {
-    type: CREATE_CHART_ARRAY,
-    payload: chartArray
+    type: CREATE_WEEK_CHART_ARRAY,
+    payload: weekChartArray
   };
 };
 
-export const updateChartArray = time => {
+export const updateWeekChartArray = time => {
   return {
-    type: UPDATE_CHART_ARRAY,
+    type: UPDATE_WEEK_CHART_ARRAY,
     payload: time
   };
 };

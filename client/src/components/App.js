@@ -12,11 +12,11 @@ import WeekChart from './WeekChart/WeekChart';
 
 import {
   FlexColumn,
-  ComponentBackground,
-  MediaFlex,
+  ComponentsContainer,
   ComponentColumn,
   ComponentColumn2,
-  LoginScreenContainer
+  LoginScreenContainer,
+  Loading
 } from '../styles/layout';
 
 import '../styles/globalStyle';
@@ -30,7 +30,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      showDate: String(new Date()).slice(0, 15),
+      showDate: today,
       today: true,
       showInput: true,
       chartArray: [],
@@ -40,7 +40,7 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
     this.props.fetchMediflections(() => {
-      this.clickDay(new Date());
+      this.clickCalendarDate(new Date());
       this.props.updateDaysArray(
         _.keys(this.props.mediflections).map(date => new Date(date))
       );
@@ -51,19 +51,18 @@ class App extends Component {
     });
   }
 
-  clickDay = date => {
+  clickCalendarDate = date => {
     date = String(date).slice(0, 15);
 
-    if (today === date) {
-      this.setState({ today: true, showInput: true });
-    } else {
-      this.setState({ today: false, showInput: false });
-    }
+    today === date
+      ? this.setState({ today: true, showInput: true })
+      : this.setState({ today: false, showInput: false });
+
+    this.props.fetchMediflection(date, this.props.mediflections[date]);
 
     this.setState({
       showDate: date
     });
-    this.props.fetchMediflection(date, this.props.mediflections[date]);
   };
 
   generateChartDatesArray = (mediflections, daysArray) => {
@@ -81,7 +80,7 @@ class App extends Component {
         chartArray[i] = mediflections[weekDay.slice(0, 15)].time;
       }
     }
-    this.props.createChartArray(chartArray);
+    this.props.createWeekChartArray(chartArray);
   };
 
   renderLogin() {
@@ -110,22 +109,22 @@ class App extends Component {
     if (
       this.props.user &&
       !_.isEmpty(this.props.selectedMediflection) &&
-      this.props.chartArray.length > 0
+      this.props.weekChartArray.length > 0
     ) {
       return (
         <FlexColumn>
           <div>
             <ShowDate today={this.state.today} date={this.state.showDate} />
           </div>
-          <MediaFlex>
+          <ComponentsContainer>
             <ComponentColumn>
               <Calendar
                 daysArray={this.props.daysArray}
-                clickDay={this.clickDay}
+                clickCalendarDate={this.clickCalendarDate}
               />
               <WeekChart today={this.state.today} />
             </ComponentColumn>
-            <ComponentColumn2>
+            <ComponentColumn2 className="c-site__component--timer">
               <Meditation
                 today={this.state.today}
                 showInput={this.state.showInput}
@@ -135,27 +134,15 @@ class App extends Component {
                 selectedMediflection={this.props.selectedMediflection}
               />
             </ComponentColumn2>
-          </MediaFlex>
+          </ComponentsContainer>
         </FlexColumn>
       );
     } else if (!this.props.user) {
       return <div />;
     } else {
-      return (
-        <div>
-          <h1>Loading...</h1>
-        </div>
-      );
+      return <Loading>Loading...</Loading>;
     }
   }
-
-  shiftStyle = () => {
-    if (this.state.style === 1) {
-      this.setState({ style: 0 });
-    } else {
-      this.setState({ style: this.state.style + 1 });
-    }
-  };
 
   render() {
     return (
@@ -173,14 +160,14 @@ function mapStateToProps({
   mediflections,
   selectedMediflection,
   daysArray,
-  chartArray
+  weekChartArray
 }) {
   return {
     user,
     mediflections,
     selectedMediflection,
     daysArray,
-    chartArray
+    weekChartArray
   };
 }
 

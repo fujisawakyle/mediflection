@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
 import { defaults } from 'react-chartjs-2';
-import styled from 'styled-components';
 
 import * as actions from '../../actions';
 import { ComponentBackground, FlexColumn } from '../../styles/layout';
@@ -22,7 +21,7 @@ class WeekChart extends Component {
         datasets: [
           {
             label: 'minutes',
-            data: this.props.chartArray,
+            data: this.props.weekChartArray,
             backgroundColor: 'rgba(74, 144, 226, 0.68)'
           }
         ]
@@ -61,7 +60,7 @@ class WeekChart extends Component {
         datasets: [
           {
             label: 'minutes',
-            data: nextProps.chartArray,
+            data: nextProps.weekChartArray,
             backgroundColor: 'rgba(74, 144, 226, 0.68)'
           }
         ]
@@ -98,9 +97,9 @@ class WeekChart extends Component {
     );
   }
 }
-function mapStateToProps({ chartArray }) {
+function mapStateToProps({ weekChartArray }) {
   return {
-    chartArray
+    weekChartArray
   };
 }
 
