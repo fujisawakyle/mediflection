@@ -7,11 +7,10 @@ import {
   ComponentBackground,
   ComponentButton,
   ComponentTitle
-} from '../../styles/layout';
+} from '../../styles/layoutStyles';
 
 import { Text } from './Reflection.style';
 
-//this grabs input from props // es6
 class Entry extends Component {
   state = {
     entry: this.props.selectedMediflection.entry
@@ -30,7 +29,7 @@ class Entry extends Component {
     const updatedMediflection = this.props.selectedMediflection;
     updatedMediflection.entry = entry;
     this.props.updateMediflection(updatedMediflection);
-    this.props.updateDaysArray([
+    this.props.updateCalendarDaysArray([
       new Date(this.props.selectedMediflection.date)
     ]);
   };

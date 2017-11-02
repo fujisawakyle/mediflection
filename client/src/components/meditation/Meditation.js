@@ -6,67 +6,64 @@ import Sound from 'react-sound';
 import ShowTracked from './showTracked';
 import ShowRemaining from './ShowRemaining';
 
-import { ComponentButton, ComponentTitle } from '../../styles/layout';
+import { ComponentButton, ComponentTitle } from '../../styles/layoutStyles';
 import { Container, Input } from './Meditation.style';
 
 import * as actions from '../../actions';
 
 class Meditation extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    seconds: 60,
+    logTime: 60,
+    showInput: this.props.showInput,
+    showTimer: false,
+    startCountdown: false,
+    timerDone: false,
+    value: 1,
+    timer: 0,
+    time: this.props.selectedMediflection.time
+  };
 
-    this.state = {
-      seconds: 60,
-      logTime: 60,
-      showInput: this.props.showInput,
-      showTimer: false,
-      startCountdown: false,
-      timerDoneFlag: false,
-      value: 1,
-      timer: 0,
-      time: this.props.selectedMediflection.time
-    };
-  }
-
-  handleChange = event => {
-    event.preventDefault();
+  handleChange = e => {
+    e.preventDefault();
     //set input lower bound to 1
-    if (event.target.value < 1) {
-      event.target.value = 1;
+    if (e.target.value < 1) {
+      e.target.value = 1;
     }
     this.setState({
-      value: event.target.value,
-      seconds: event.target.value * 60
+      value: e.target.value,
+      seconds: e.target.value * 60
     });
   };
 
   startTimer = e => {
     e.preventDefault();
+
+    this.handleSongStartPlaying();
+
     this.setState({
       showTimer: true,
       showInput: false,
       startCountdown: true,
-      timerDoneFlag: false,
+      timerDone: false,
       timeLeft: this.secondsToTime(this.state.value * 60),
       seconds: this.state.value * 60
     });
-    this.handleSongStartPlaying();
 
     if (this.state.timer === 0) {
       this.setState({
         timer: setInterval(this.countDown, 1000)
       });
     }
-    document
-      .getElementsByClassName('c-site__component--timer')[0]
-      .classList.add('timer--open');
   };
 
   continueTimer = e => {
+    e.preventDefault();
+
     this.setState({
       startCountdown: true
     });
-    e.preventDefault();
+
     if (this.state.timer === 0) {
       this.setState({
         timer: setInterval(this.countDown, 1000)
@@ -75,6 +72,8 @@ class Meditation extends Component {
   };
 
   pauseTimer = e => {
+    e.preventDefault();
+
     clearInterval(this.state.timer);
 
     this.setState({
@@ -84,7 +83,10 @@ class Meditation extends Component {
   };
 
   exitTimer = e => {
+    e.preventDefault();
+
     this.handleSongFinishedPlaying();
+
     clearInterval(this.state.timer);
     this.setState({
       timer: 0,
@@ -125,7 +127,6 @@ class Meditation extends Component {
   }
 
   countDown = () => {
-    // Remove one second, set state so a re-render happens.
     let seconds = this.state.seconds - 1;
     let log = this.state.logTime - 1;
     this.setState({
@@ -133,6 +134,7 @@ class Meditation extends Component {
       seconds: seconds,
       logTime: log
     });
+
     //log time every 1 minute
     if (log === 0) {
       this.setState({
@@ -141,18 +143,22 @@ class Meditation extends Component {
       });
       const updatedMediflection = this.props.selectedMediflection;
       updatedMediflection.time = this.state.time;
+
       this.props.updateMediflection(updatedMediflection);
-      this.props.updateDaysArray([
+      this.props.updateCalendarDaysArray([
         new Date(this.props.selectedMediflection.date)
       ]);
-      this.props.updateChartArray(this.props.selectedMediflection.time);
+      this.props.updateWeekChartArray(this.props.selectedMediflection.time);
     }
+
     // Check if the session is done.
     if (seconds === 0) {
       clearInterval(this.state.timer);
+
+      this.handleSongStartPlaying();
+
       this.setState({
-        timerDoneFlag: true,
-        playStatus: Sound.status.PLAYING
+        timerDone: true
       });
     }
   };
@@ -182,35 +188,22 @@ class Meditation extends Component {
 
     let buttonDisplay;
     const startButton = (
-      <ComponentButton className="button startButton" onClick={this.startTimer}>
-        Start
-      </ComponentButton>
+      <ComponentButton onClick={this.startTimer}>Start</ComponentButton>
     );
     const continueButton = (
-      <ComponentButton
-        className="button continueButton"
-        onClick={this.continueTimer}
-      >
-        Continue
-      </ComponentButton>
+      <ComponentButton onClick={this.continueTimer}>Continue</ComponentButton>
     );
     const exitButton = (
-      <ComponentButton
-        className="button timer__exit timer__exit--active"
-        onClick={this.exitTimer}
-      >
-        X
-      </ComponentButton>
+      <ComponentButton onClick={this.exitTimer}>X</ComponentButton>
     );
     const pauseButton = (
-      <ComponentButton className="button" onClick={this.pauseTimer}>
-        Pause
-      </ComponentButton>
+      <ComponentButton onClick={this.pauseTimer}>Pause</ComponentButton>
     );
     if (this.props.today) {
       //CASE: timer in session - check for finished
       if (this.state.startCountdown && this.state.showTimer) {
-        if (this.state.timerDoneFlag) {
+        //CASE: timer is done
+        if (this.state.timerDone) {
           buttonDisplay = <div>{exitButton}</div>;
         } else {
           buttonDisplay = (

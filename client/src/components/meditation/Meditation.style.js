@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ComponentBackground } from '../../styles/layout';
+import { ComponentBackground } from '../../styles/layoutStyles';
 
 export const Container = styled(ComponentBackground)`flex: 1;`;
 
@@ -14,4 +14,4 @@ export const Input = styled.input`
   margin: 0.5em;
 `;
 
-export const TimeRemaining = styled.div`font-size: 2.5em;`;
+export const TimeRemaining = styled.div`font-size: 2.1em;`;

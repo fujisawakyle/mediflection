@@ -4,7 +4,7 @@ import {
   FETCH_MEDIFLECTIONS,
   FETCH_MEDIFLECTION,
   UPDATE_MEDIFLECTION,
-  UPDATE_DAYS_ARRAY,
+  UPDATE_CALENDAR_DAYS_ARRAY,
   CREATE_WEEK_CHART_ARRAY,
   UPDATE_WEEK_CHART_ARRAY
 } from './types';
@@ -42,10 +42,10 @@ export const updateMediflection = mediflection => dispatch => {
   dispatch({ type: UPDATE_MEDIFLECTION, payload: mediflection });
 };
 
-export const updateDaysArray = dateArray => {
+export const updateCalendarDaysArray = calendarDaysArray => {
   return {
-    type: UPDATE_DAYS_ARRAY,
-    payload: dateArray
+    type: UPDATE_CALENDAR_DAYS_ARRAY,
+    payload: calendarDaysArray
   };
 };
 

@@ -33,9 +33,9 @@ a {
     color: white;
     text-decoration: none;
 
-}
-a:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
 }
 
 textarea {
@@ -135,108 +135,108 @@ textarea {
   }
 }
   
-  .DayPicker-Body {
-    display: table-row-group;
-  }
-  
-  .DayPicker-Week {
-    display: table-row;
-  }
-  
-  .DayPicker-Day {
-    display: table-cell;
-    padding: 2vw 2.2vw;
-    text-align: center;
-    cursor: pointer;
-    vertical-align: middle;
-    ${media.xs`
-      padding: 2vw 3.5vw;
-    `}
-    ${media.sm`
-      padding: 2vw 4vw;  
-    `}
-    ${media.md`
-      padding: 2.2vw 2.2vw;
-    `}
-    ${media.lg`
-    padding: 1.4em;
+.DayPicker-Body {
+  display: table-row-group;
+}
+
+.DayPicker-Week {
+  display: table-row;
+}
+
+.DayPicker-Day {
+  display: table-cell;
+  padding: 2vw 2.2vw;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+  ${media.xs`
+    padding: 2vw 3.5vw;
   `}
-  }
-  
-  .DayPicker-WeekNumber {
-    display: table-cell;
-    padding: 0.5rem;
-    text-align: right;
-    vertical-align: middle;
-    min-width: 1rem;
-    font-size: 0.75em;
-    cursor: pointer;
-    color: #8b9898;
-  }
-  
-  .DayPicker--interactionDisabled .DayPicker-Day {
-    cursor: default;
-  }
-  
-  .DayPicker-Footer {
-    display: table-caption;
-    caption-side: bottom;
-    padding-top: 1.5rem;
-  }
-  
-  .DayPicker-TodayButton {
-    border: none;
-    background-color: #4a90e2;
-    box-shadow: none;
-    cursor: pointer;
-    text-shadow: 0 0 10px rgba(0,0,0,0.9);
-    color: white;
-    font-size: 0.8em;
-    position: absolute;
-    left: 50%;
-    bottom: 2.1%;
-    transform: translateX(-50%);
-    font-family: 'Bungee Hairline', cursive;
-  }
-  
-  /* Default modifiers */
-  
-  .DayPicker-Day--disabled {
-    color: #dce0e0;
-    cursor: default;
-    background-color: #eff1f1;
-  }
-  
-  .DayPicker-Day--outside {
-    cursor: default;
-    color: #7d7d7d;
-  }
-  
-  /* Example modifiers */
-  
-  .DayPicker-Day--sunday {
-    background-color: #f7f8f8;
-  }
-  
-  .DayPicker-Day--sunday:not(.DayPicker-Day--today) {
-    color: #dce0e0;
-  }
-  
-  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-    color: #fff;
-    background-color: rgba(74, 144, 226, 0.68);
-  }
-  
-  .DayPicker-Day:focus {
-    outline-style: none;
-    box-shadow: none;
-    border-color: transparent;
-    border: 2px solid white;
-  }
-  
-  .DayPicker-Day--today {
-    border: 2px solid rgba(4, 199, 255, 0.89);
-    font-weight: 500;
-  }
+  ${media.sm`
+    padding: 2vw 4vw;  
+  `}
+  ${media.md`
+    padding: 2.2vw 2.2vw;
+  `}
+  ${media.lg`
+  padding: 1.4em;
+`}
+}
+
+.DayPicker-WeekNumber {
+  display: table-cell;
+  padding: 0.5rem;
+  text-align: right;
+  vertical-align: middle;
+  min-width: 1rem;
+  font-size: 0.75em;
+  cursor: pointer;
+  color: #8b9898;
+}
+
+.DayPicker--interactionDisabled .DayPicker-Day {
+  cursor: default;
+}
+
+.DayPicker-Footer {
+  display: table-caption;
+  caption-side: bottom;
+  padding-top: 1.5rem;
+}
+
+.DayPicker-TodayButton {
+  border: none;
+  background-color: #4a90e2;
+  box-shadow: none;
+  cursor: pointer;
+  text-shadow: 0 0 10px rgba(0,0,0,0.9);
+  color: white;
+  font-size: 0.8em;
+  position: absolute;
+  left: 50%;
+  bottom: 2.1%;
+  transform: translateX(-50%);
+  font-family: 'Bungee Hairline', cursive;
+}
+
+/* Default modifiers */
+
+.DayPicker-Day--disabled {
+  color: #dce0e0;
+  cursor: default;
+  background-color: #eff1f1;
+}
+
+.DayPicker-Day--outside {
+  cursor: default;
+  color: #7d7d7d;
+}
+
+/* Example modifiers */
+
+.DayPicker-Day--sunday {
+  background-color: #f7f8f8;
+}
+
+.DayPicker-Day--sunday:not(.DayPicker-Day--today) {
+  color: #dce0e0;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  color: #fff;
+  background-color: rgba(74, 144, 226, 0.68);
+}
+
+.DayPicker-Day:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+  border: 2px solid white;
+}
+
+.DayPicker-Day--today {
+  border: 2px solid rgba(4, 199, 255, 0.89);
+  font-weight: 500;
+}
 
 `;

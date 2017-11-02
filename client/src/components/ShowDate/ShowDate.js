@@ -1,13 +1,12 @@
 import React from 'react';
-import { ComponentBackground } from '../../styles/layout';
+import { ComponentBackground } from '../../styles/layoutStyles';
 import { DayBorder, TodayBorder } from './ShowDate.style';
 
 export default ({ date, today }) => {
   let showDate;
-  if (today) {
-    showDate = <TodayBorder>{date}</TodayBorder>;
-  } else {
-    showDate = <DayBorder>{date}</DayBorder>;
-  }
+  today
+    ? (showDate = <TodayBorder>{date}</TodayBorder>)
+    : (showDate = <DayBorder>{date}</DayBorder>);
+
   return <ComponentBackground>{showDate}</ComponentBackground>;
 };

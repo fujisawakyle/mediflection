@@ -14,10 +14,14 @@ import {
   FlexColumn,
   ComponentsContainer,
   ComponentColumn,
-  ComponentColumn2,
+  ComponentColumn2
+} from '../styles/layoutStyles';
+
+import {
   LoginScreenContainer,
-  Loading
-} from '../styles/layout';
+  Loading,
+  GoogleLogo
+} from '../styles/loginStyles';
 
 import '../styles/globalStyle';
 
@@ -26,27 +30,23 @@ import googleLogo from '../images/google-white.png';
 const today = String(new Date()).slice(0, 15);
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showDate: today,
-      today: true,
-      showInput: true,
-      chartArray: [],
-      style: 0
-    };
-  }
+  state = {
+    showDate: today,
+    today: true,
+    showInput: true,
+    chartArray: [],
+    style: 0
+  };
   componentDidMount() {
     this.props.fetchUser();
     this.props.fetchMediflections(() => {
       this.clickCalendarDate(new Date());
-      this.props.updateDaysArray(
+      this.props.updateCalendarDaysArray(
         _.keys(this.props.mediflections).map(date => new Date(date))
       );
-      this.generateChartDatesArray(
+      this.generateWeekChartArray(
         this.props.mediflections,
-        this.props.daysArray
+        this.props.calendarDaysArray
       );
     });
   }
@@ -65,22 +65,23 @@ class App extends Component {
     });
   };
 
-  generateChartDatesArray = (mediflections, daysArray) => {
-    const chartArray = [0, 0, 0, 0, 0, 0, 0];
-    daysArray = daysArray.toString().split(',');
+  generateWeekChartArray = (mediflections, calendarDaysArray) => {
+    const weekChartArray = [0, 0, 0, 0, 0, 0, 0];
+    calendarDaysArray = calendarDaysArray.toString().split(',');
 
+    //populate meditation times for last week to weekChartArray
     for (let i = 0; i < 7; i++) {
       let weekDay = new Date();
       weekDay.setHours(0, 0, 0, 0);
       weekDay.setDate(weekDay.getDate() - weekDay.getDay() + i);
       weekDay = String(weekDay);
-      let indexSearch = daysArray.indexOf(weekDay);
+      let indexSearch = calendarDaysArray.indexOf(weekDay);
 
       if (indexSearch >= 0) {
-        chartArray[i] = mediflections[weekDay.slice(0, 15)].time;
+        weekChartArray[i] = mediflections[weekDay.slice(0, 15)].time;
       }
     }
-    this.props.createWeekChartArray(chartArray);
+    this.props.createWeekChartArray(weekChartArray);
   };
 
   renderLogin() {
@@ -93,9 +94,8 @@ class App extends Component {
             <LoginScreenContainer>
               <h1>Welcome to Mediflection</h1>
               <h3>Track your meditation, track your reflection</h3>
-              <br />
               <a href="/auth/google">
-                <img src={googleLogo} width="160" alt="Google" />
+                <GoogleLogo src={googleLogo} width="160" alt="Google" />
               </a>
             </LoginScreenContainer>
           </FlexColumn>
@@ -119,7 +119,7 @@ class App extends Component {
           <ComponentsContainer>
             <ComponentColumn>
               <Calendar
-                daysArray={this.props.daysArray}
+                calendarDaysArray={this.props.calendarDaysArray}
                 clickCalendarDate={this.clickCalendarDate}
               />
               <WeekChart today={this.state.today} />
@@ -159,14 +159,14 @@ function mapStateToProps({
   user,
   mediflections,
   selectedMediflection,
-  daysArray,
+  calendarDaysArray,
   weekChartArray
 }) {
   return {
     user,
     mediflections,
     selectedMediflection,
-    daysArray,
+    calendarDaysArray,
     weekChartArray
   };
 }

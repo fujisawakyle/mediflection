@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 import { defaults } from 'react-chartjs-2';
 
 import * as actions from '../../actions';
-import { ComponentBackground, FlexColumn } from '../../styles/layout';
+import { ComponentBackground, FlexColumn } from '../../styles/layoutStyles';
 import { ChartContainer } from './WeekChart.style';
 
 defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
@@ -70,23 +70,22 @@ class WeekChart extends Component {
 
   render() {
     let chartData;
-    if (this.props.today) {
-      chartData = (
-        <ChartContainer>
-          <Bar
-            redraw={true}
-            data={this.state.chartData}
-            options={this.state.options}
-          />
-        </ChartContainer>
-      );
-    } else {
-      chartData = (
-        <ChartContainer>
-          <Bar data={this.state.chartData} options={this.state.options} />
-        </ChartContainer>
-      );
-    }
+    this.props.today
+      ? (chartData = (
+          <ChartContainer>
+            <Bar
+              redraw={true}
+              data={this.state.chartData}
+              options={this.state.options}
+            />
+          </ChartContainer>
+        ))
+      : (chartData = (
+          <ChartContainer>
+            <Bar data={this.state.chartData} options={this.state.options} />
+          </ChartContainer>
+        ));
+
     return (
       <ComponentBackground>
         <FlexColumn>

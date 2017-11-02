@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 import media from './media';
 
-export const LoginScreenContainer = styled.div`
-  width: 90%;
-  max-width: 40em;
-  svg {
-    width: 5em;
-  }
-`;
-
 export const ComponentBackground = styled.div`
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -65,5 +57,3 @@ export const ComponentsContainer = styled(FlexColumn)`
 `;
 
 export const ComponentTitle = styled.h2`font-size: 1.5em;`;
-
-export const Loading = styled(FlexColumn)`font-size: 2em;`;
