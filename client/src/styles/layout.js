@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import media from './media';
 
-export const HomeScreenContainer = styled.div`
+export const LoginScreenContainer = styled.div`
   width: 90%;
   max-width: 40em;
+  svg {
+    width: 5em;
+  }
 `;
 
 export const ComponentBackground = styled.div`

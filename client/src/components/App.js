@@ -16,10 +16,12 @@ import {
   MediaFlex,
   ComponentColumn,
   ComponentColumn2,
-  HomeScreenContainer
+  LoginScreenContainer
 } from '../styles/layout';
 
 import '../styles/globalStyle';
+
+import googleLogo from '../images/google-white.png';
 
 const today = String(new Date()).slice(0, 15);
 
@@ -89,14 +91,14 @@ class App extends Component {
       case false:
         return (
           <FlexColumn>
-            <HomeScreenContainer>
+            <LoginScreenContainer>
               <h1>Welcome to Mediflection</h1>
               <h3>Track your meditation, track your reflection</h3>
-              <h4>Login with: </h4>
+              <br />
               <a href="/auth/google">
-                <img src="../images/svg/google.svg" height="80" alt="Google" />
+                <img src={googleLogo} width="160" alt="Google" />
               </a>
-            </HomeScreenContainer>
+            </LoginScreenContainer>
           </FlexColumn>
         );
       default:
