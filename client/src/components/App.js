@@ -93,7 +93,7 @@ class App extends Component {
           <FlexColumn>
             <LoginScreenContainer>
               <h1>Welcome to Mediflection</h1>
-              <h3>Track your meditation, track your reflection</h3>
+              <h3>Track your meditations, track your reflections</h3>
               <a href="/auth/google">
                 <GoogleLogo src={googleLogo} width="160" alt="Google" />
               </a>
