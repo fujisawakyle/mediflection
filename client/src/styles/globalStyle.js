@@ -43,7 +43,7 @@ textarea {
 }
 
 .saved-message {
-  
+
 }
 
 .DayPicker {
@@ -150,6 +150,7 @@ textarea {
 .DayPicker-Day {
   display: table-cell;
   padding: 2vw 2.2vw;
+  margin: 4px;
   text-align: center;
   cursor: pointer;
   vertical-align: middle;
@@ -230,7 +231,6 @@ textarea {
 }
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-  color: #fff;
   background-color: rgba(74, 144, 226, 0.68);
 }
 
@@ -238,7 +238,7 @@ textarea {
   outline-style: none;
   box-shadow: none;
   border-color: transparent;
-  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 1) !important;
 }
 
 .DayPicker-Day--today {
