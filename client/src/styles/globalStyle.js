@@ -42,6 +42,10 @@ textarea {
   resize: none;
 }
 
+.saved-message {
+  
+}
+
 .DayPicker {
     display: inline-block;
   }
@@ -197,6 +201,9 @@ textarea {
   bottom: 2.1%;
   transform: translateX(-50%);
   font-family: 'Bungee Hairline', cursive;
+  &:hover {
+    background: #2970df;
+  }
 }
 
 /* Default modifiers */

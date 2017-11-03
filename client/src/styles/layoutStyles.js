@@ -40,6 +40,10 @@ export const ComponentButton = styled.button`
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   margin: 1em 0.5em;
   font-family: 'Bungee Hairline', cursive;
+
+  &:hover {
+    background: #2970df;
+  }
 `;
 
 export const ComponentsContainer = styled(FlexColumn)`

@@ -9,11 +9,12 @@ import {
   ComponentTitle
 } from '../../styles/layoutStyles';
 
-import { Text } from './Reflection.style';
+import { Text, ReflectionComponent, Message } from './Reflection.style';
 
 class Entry extends Component {
   state = {
-    entry: this.props.selectedMediflection.entry
+    entry: this.props.selectedMediflection.entry,
+    message: ''
   };
 
   componentWillReceiveProps(nextProps) {
@@ -25,6 +26,7 @@ class Entry extends Component {
       entry: event.target.value
     });
   };
+
   update = entry => {
     const updatedMediflection = this.props.selectedMediflection;
     updatedMediflection.entry = entry;
@@ -32,10 +34,17 @@ class Entry extends Component {
     this.props.updateCalendarDaysArray([
       new Date(this.props.selectedMediflection.date)
     ]);
+    this.setState({ message: 'Saved!' });
+    setTimeout(
+      function() {
+        this.setState({ message: '' });
+      }.bind(this),
+      1000
+    );
   };
   render() {
     return (
-      <ComponentBackground>
+      <ReflectionComponent>
         <FlexColumn>
           <ComponentTitle>Reflection</ComponentTitle>
           <Text
@@ -44,6 +53,7 @@ class Entry extends Component {
             value={this.state.entry}
             placeholder="Today's meditation was:"
           />
+          <Message>{this.state.message}</Message>
           <ComponentButton
             onClick={() => this.update(this.state.entry)}
             type="submit"
@@ -51,7 +61,7 @@ class Entry extends Component {
             Submit
           </ComponentButton>
         </FlexColumn>
-      </ComponentBackground>
+      </ReflectionComponent>
     );
   }
 }

@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import media from '../../styles/media';
+import { ComponentBackground } from '../../styles/layoutStyles';
+
+export const ReflectionComponent = styled(ComponentBackground)`
+  position: relative;
+`;
 
 export const Text = styled.textarea`
   height: 32vw;
@@ -15,4 +20,9 @@ export const Text = styled.textarea`
     height: 18.8em;
     width: 19.5em;
   `};
+`;
+
+export const Message = styled.div`
+  position: absolute;
+  bottom: 2.5em;
 `;
