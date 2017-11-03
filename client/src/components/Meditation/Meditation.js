@@ -199,7 +199,7 @@ class Meditation extends Component {
     const pauseButton = (
       <ComponentButton onClick={this.pauseTimer}>Pause</ComponentButton>
     );
-    if (this.props.today) {
+    if (this.props.today || this.state.showTimer) {
       //CASE: timer in session - check for finished
       if (this.state.startCountdown && this.state.showTimer) {
         //CASE: timer is done

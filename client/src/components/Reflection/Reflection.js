@@ -4,7 +4,6 @@ import * as actions from '../../actions';
 
 import {
   FlexColumn,
-  ComponentBackground,
   ComponentButton,
   ComponentTitle
 } from '../../styles/layoutStyles';
