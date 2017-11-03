@@ -52,7 +52,7 @@ class Meditation extends Component {
 
     if (this.state.timer === 0) {
       this.setState({
-        timer: setInterval(this.countDown, 100)
+        timer: setInterval(this.countDown, 1000)
       });
     }
   };
