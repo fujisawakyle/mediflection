@@ -39,7 +39,7 @@ export const ComponentButton = styled.button`
   font-size: 0.875em;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   margin: 1em 0.5em;
-  font-family: 'Bungee Hairline', cursive;
+  font-family: 'Nixie One';
 
   &:hover {
     background: #2970df;
@@ -60,4 +60,6 @@ export const ComponentsContainer = styled(FlexColumn)`
   `};
 `;
 
-export const ComponentTitle = styled.h2`font-size: 1.5em;`;
+export const ComponentTitle = styled.h2`
+  font-size: 1.5em;
+`;

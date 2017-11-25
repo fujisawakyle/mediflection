@@ -6,7 +6,7 @@ injectGlobal`
 body {
     background: linear-gradient(to left top, #1687c0, #040711) fixed;
     color: white;
-    font-family: 'Bungee Hairline', cursive;
+    font-family: 'Nixie One';
     margin: 0;
 }
 
@@ -199,9 +199,9 @@ textarea {
   font-size: 0.8em;
   position: absolute;
   left: 50%;
-  bottom: 2.1%;
+  bottom: 5%;
   transform: translateX(-50%);
-  font-family: 'Bungee Hairline', cursive;
+  font-family: 'Nixie One';
   &:hover {
     background: #2970df;
   }
@@ -232,6 +232,7 @@ textarea {
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
   background-color: rgba(74, 144, 226, 0.68);
+
 }
 
 .DayPicker-Day:focus {

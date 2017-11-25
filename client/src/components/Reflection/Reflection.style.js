@@ -7,11 +7,12 @@ export const ReflectionComponent = styled(ComponentBackground)`
 `;
 
 export const Text = styled.textarea`
+  padding: 0.5em;
   height: 32vw;
   width: 77vw;
   margin: 1em 0;
   background-color: rgba(255, 255, 255, 0.8);
-  font-family: 'Saira', sans-serif;
+  font-family: 'Nixie One';
   ${media.md`
     width: 32vw;
     margin: 1em;

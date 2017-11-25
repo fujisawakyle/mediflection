@@ -8,7 +8,7 @@ export default ({ calendarDaysArray, clickCalendarDate }) => {
     <ComponentBackground>
       <DayPicker
         enableOutsideDays
-        todayButton="current month"
+        todayButton="Current month"
         selectedDays={calendarDaysArray}
         onDayClick={date => clickCalendarDate(date)}
       />

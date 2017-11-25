@@ -90,15 +90,15 @@ class App extends Component {
         return;
       case false:
         return (
-          <FlexColumn>
-            <LoginScreenContainer>
+          <LoginScreenContainer>
+            <FlexColumn>
               <h1>Welcome to Mediflection</h1>
               <h3>Track your meditations, track your reflections</h3>
               <a href="/auth/google">
                 <GoogleLogo src={googleLogo} width="160" alt="Google" />
               </a>
-            </LoginScreenContainer>
-          </FlexColumn>
+            </FlexColumn>
+          </LoginScreenContainer>
         );
       default:
         return;

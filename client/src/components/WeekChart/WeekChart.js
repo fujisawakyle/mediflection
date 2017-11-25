@@ -7,7 +7,7 @@ import * as actions from '../../actions';
 import { ComponentBackground, FlexColumn } from '../../styles/layoutStyles';
 import { ChartContainer } from './WeekChart.style';
 
-defaults.global.defaultFontFamily = 'Bungee Hairline, cursive';
+defaults.global.defaultFontFamily = 'Nixie One';
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
